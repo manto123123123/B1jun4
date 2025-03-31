@@ -3,9 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Notion</title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 버튼 클릭 시 데이터 추가 함수 실행
+        const addButton = document.getElementById('addButton')
+        addButton.addEventListener('click', () => {
+          // prompt로 이름 입력받기
+          const username = prompt('이름을 입력하세요')
+
+          if (username) {
+            // 입력받은 이름을 JSON Server에 POST 요청으로 추가하기
+            addUsername(username)
+          }
+        })
+      })
+
+      // POST 요청을 통해 username 추가
+      function addUsername(username) {
+        fetch('http://localhost:3000/username', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name: username }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            alert('이름이 추가되었습니다: ' + data.name)
+            console.log('추가된 데이터:', data)
+          })
+          .catch((error) => {
+            console.error('데이터 추가 실패:', error)
+            alert('데이터 추가 실패!')
+          })
+      }
+    </script>
   </head>
   <body>
-    <h1>hellow world!</h1>
+    <h1>Notion</h1>
+    <button id="addButton">이름 추가</button>
   </body>
 </html>
