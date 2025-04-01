@@ -7,13 +7,98 @@
     <link rel="stylesheet" href="/postingPage.css" />
 </head>
 <body>
+    <!-- 글쓰기 화면 상단 메뉴 컨테이너 -->
+    <div class="topMenuContainer">
+        <!-- 최상단 메뉴 -->
+        <div class="buttonMenu">
+            <!-- 뒤로가기 버튼 -->
+            <div class="buttonBack">
+                <button class="back"></button>
+            </div>
+            <!-- 폴더 선택 -->
+            <div class="selectFolder">
+                <select name="folder" id="folder">
+                    <!-- <optgroup> -->
+                    <option value="default">폴더 선택</option>
+                    <option value="folder1">folder1</option>
+                    <option value="folder2">folder2</option>
+                    <option value="folder3">folder3</option>
+                    <!-- </optgroup> -->
+                </select>
+            </div>
+        </div>
+        <!-- 경로 메뉴 -->
+        <div class="pathMenu">
+            <div class="pathGroup">
+                <div class="pathFolderIcon"></div>
+                <div class="pathName">Folder 1</div>
+            </div>
+            <div class="pathGroup">
+                <div class="pathSlash">/</div>
+                <div class="pathFolderIcon"></div>
+                <div class="pathName">Folder 1-1</div>
+            </div>
+            <div class="pathGroup">
+                <div class="pathSlash">/</div>
+                <div class="pathFileIcon"></div>
+                <div class="pathName">Folder 1-1</div>
+            </div>
+        </div>
+        <!-- 텍스트 바 메뉴 -->
+        <div class="textBarMenu">
+            <!-- 폰트 & 폰트 크기 설정 섹션 -->
+            <div class="fontSection">
+                <select name="fontSize" id="fontSize">
+                    <option value="12px">12px</option>
+                    <option value="16px">16px</option>
+                    <option value="20px">20px</option>
+                    <option value="24px">24px</option>
+                    <option value="28px">28px</option>
+                    <option value="32px">32px</option>
+                </select>
+                <select name="font" id="font">
+                    <option value="basic">기본서체</option>
+                    <option value="bonGothicR">본고딕 R</option>
+                    <option value="bonGothicL">본고딕 L</option>
+                    <option value="nanumGothic">나눔고딕</option>
+                    <option value="gungseo">궁서</option>
+                </select>
+            </div>
+            <!-- 섹션 구분선 -->
+            <div class="sectionLine"></div>
+            <!-- 텍스트 데코레이션 섹션 -->
+            <div class="decoSection">
+                <button class="bold"><div class="iconBold"></div>굵게</button>
+                <button class="italic"><div class="iconItalic"></div>기울임</button>
+                <button class="underline"><div class="iconUnderline"></div>밑줄</button>
+                <button class="crossline"><div class="iconCrossline"></div>취소선</button>
+                <button class="fontColor"><div class="iconFontColor"></div>글자색</button>
+                <button class="fontBackgroundColor"><div class="iconFontBackgroundColor"></div>배경색</button>
+                <button class="hrline"><div class="iconHrline"></div>구분선</button>
+            </div>
+            <!-- 섹션 구분선 -->
+            <div class="sectionLine"></div>
+            <!-- 텍스트 정렬 섹션 -->
+            <div class="alignSection">
+                <button class="alignDefault"><div class="iconAlignDefault"></div>양쪽 정렬</button>
+                <button class="alignLeft"><div class="iconAlignLeft"></div>왼쪽 정렬</button>
+                <button class="alignCenter"><div class="iconAlignCenter"></div>가운데 정렬</button>
+                <button class="alignRight"><div class="iconAlignRight"></div>오른쪽 정렬</button>
+            </div>
+            <!-- 텍스트 바 토글 버튼 -->
+            <div class="toggleBtnTextBar">
+                <button class="toggleBtn"></button>
+            </div>
+        </div>
+    </div>
+
     <section class="postingSection">
         <input type="text" class="postingTitle" contenteditable="true" placeholder="제목" />
         <hr />
         <textarea class="postingContent" contenteditable="true" placeholder="내용을 입력하세요"></textarea>
-        </section>
-        <div class="deleteBtnContainer">
-            <button type="button" class="deleteBtn">삭제하기</button>
-        </div>
+    </section>
+    <div class="deleteBtnContainer">
+        <button type="button" class="deleteBtn">삭제하기</button>
+    </div>
 </body>
 </html>
