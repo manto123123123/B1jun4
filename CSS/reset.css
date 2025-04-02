@@ -4,6 +4,19 @@ body, aside, header, img, span, form, input, button, nav, select, option, ul, li
     border: 0;
     box-sizing: border-box;
     vertical-align: middle;
+    color: var(--common1);
+
+    @font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+    }
+}
+
+html, body {
+    height: 100%;
+    white-space: nowrap;
 }
 
 ul, li {
