@@ -1,0 +1,19 @@
+body, aside, header, img, span, form, input, button, nav, select, option, ul, li, a, label, svg, g, path, section, div, textarea, h1, h2, p{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a:link, a:visited, a:hover, a:active, a:focus{
+    text-decoration: none;
+}
+
+header, footer, nav, section{
+    display: block;
+}
