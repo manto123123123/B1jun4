@@ -1,0 +1,44 @@
+@import url(./root.css);
+
+
+.sideBar {
+    background-color: var(--main-bg-color1);
+    width: 20%;
+    height: 100%;
+    display: block;
+    float: left;
+    position: relative;
+}
+
+.sideBarHeader {
+    position: absolute;
+
+    .workspace {
+        font-size: 14px;
+        padding: 0 20px 0 0;
+    }
+    .logo {
+        margin: 5px 5px;
+    }
+
+    .toggleBtn {
+        padding-left: 30px;
+    }
+}
+
+.documentContainer {
+    position: absolute;
+    display: block;
+    margin-left: 10px;
+    width: 100%;
+    bottom: 400px;
+    line-height: 2.4em;
+    font-size: var(---sidebar-font-size);
+
+    span {
+        font-weight: 500;
+    }
+    ul {
+        margin-left: 10px;
+    }
+}
