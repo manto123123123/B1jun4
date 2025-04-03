@@ -1,37 +1,37 @@
+let showAll = document.getElementById('showAll');
 document.addEventListener('DOMContentLoaded', () => {
-  const API = 'https://kdt-api.fe.dev-cos.com/documents';
-  const USERNAME = 'b1jun4';
   // posting.html에서 전체 보기 ul 태그의 id를 showAll로 설정
-  showAll = document.getElementById('showAll');
+
   // addDocument는 파일 추가 button 태그 id
   //   const addDocument = document.getElementById('addDocument')
   //   addDocument.addEventListener('click', postDocument)
 
-  async function getDocuments() {
-    try {
-      const response = await fetch(API, {
-        headers: {
-          'Content-Type': 'application/json',
-          'x-username': USERNAME,
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok!');
-      }
-      const data = await response.json();
-      console.log('성공: ', data);
-
-      let depth = 0;
-
-      findDocuments(data, depth);
-    } catch (error) {
-      console.error('실패: ', error);
-    }
-  }
-
   getDocuments();
 });
+export async function getDocuments() {
+  const API = 'https://kdt-api.fe.dev-cos.com/documents';
+  const USERNAME = 'b1jun4';
+  try {
+    const response = await fetch(API, {
+      headers: {
+        'Content-Type': 'application/json',
+        'x-username': USERNAME,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok!');
+    }
+    const data = await response.json();
+    console.log('성공: ', data);
+
+    let depth = 0;
+
+    findDocuments(data, depth);
+  } catch (error) {
+    console.error('실패: ', error);
+  }
+}
 
 function findDocuments(arr, depth) {
   for (let doc of arr) {
