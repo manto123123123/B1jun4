@@ -8,6 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   // 이모지 목록에서 특정 값을 선택시, 이모지 확인됨
   picker.on('emoji', (emoji) => {
-    emojiBtn.innerHTML = `<span class="emoji">${emoji}</span>`;
+    emojiBtn.innerHTML = `<span class="material-symbols-outlined icon">${emoji}</span>`;
   });
 });
