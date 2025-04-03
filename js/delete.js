@@ -1,33 +1,19 @@
 //import postSaving from './postSave.js';
 import { getDocuments } from './show.js';
+import { get, deleteDoc, put } from './api/index.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const postingTitle = document.querySelector('.postingTitle');
   const postingContent = document.querySelector('.postingContent');
   const deleteBtn = document.querySelector('.deleteBtn');
   const showAll = document.getElementById('showAll'); // 문서 목록 ul
-  const USERNAME = 'b1jun4';
 
   let currentDocId = null; // 현재 선택된 문서 ID 저장
 
   //데이터 가져오는 함수
   async function fetchDocument(docId) {
     try {
-      const response = await fetch(
-        `https://kdt-api.fe.dev-cos.com/documents/${docId}`,
-        {
-          method: 'GET',
-          headers: {
-            'x-username': USERNAME,
-          },
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok!');
-      }
-
-      const data = await response.json();
+      const data = await get(docId);
       console.log('받아온 데이터:', data); // 디버깅용 콘솔 출력
 
       postingTitle.value = data.title || '제목 없음';
@@ -41,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const id = pathname.split('/').pop();
       console.log('path : ', id);
 
-      postSaving(id);
+      postSaving(docId);
     } catch (error) {
       console.error('데이터 가져오기 실패:', error);
     }
@@ -53,22 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('삭제할 문서를 선택하세요.');
       return;
     }
-
     try {
-      const response = await fetch(
-        `https://kdt-api.fe.dev-cos.com/documents/${currentDocId}`,
-        {
-          method: 'DELETE',
-          headers: {
-            'x-username': USERNAME,
-          },
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok!');
-      }
-
+      await deleteDoc();
       console.log('문서 삭제 성공:', currentDocId);
       alert('문서가 삭제되었습니다.');
 
@@ -91,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const postSaving = (id) => {
     const title = document.querySelector('.postingTitle');
     const content = document.querySelector('.postingContent');
-    const XUSERNAME = 'b1jun4';
 
+    /*
     const posting = [title, content];
     posting.forEach((v) => {
       v.addEventListener('keyup', async () => {
@@ -109,28 +81,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
           console.log(`${id}번으로 PUT 날라간당`);
-          const API_PUT = `https://kdt-api.fe.dev-cos.com/documents/${id}`;
-          const response = await fetch(API_PUT, {
-            method: 'PUT',
-            headers: {
-              'x-username': XUSERNAME,
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              title: titleText,
-              content: titleContent,
-            }),
-          });
-          if (!response.ok) {
-            throw new Error('Network response was not ok!');
-          }
-          const data = await response.json();
-          console.log(`${id}번 수정 완료 : ${data}`);
+          await put(id, titleText, titleContent);
           getDocuments();
         } catch (error) {
           console.error(error);
         }
       });
+    });
+*/
+    // const titleText = title.value;
+    // const pathname = window.location.pathname;
+    // const id = pathname.split('/').pop();
+    // 제목 변경시 사이드바 리렌더링
+    title.addEventListener('keyup', async () => {
+      const titleText = title.value;
+      // const pathname = window.location.pathname;
+
+      try {
+        console.log(`${id}번 제목 변경`);
+        await put(id, 'title', titleText);
+        getDocuments();
+      } catch (error) {
+        console.error(error);
+      }
+    });
+
+    // 내용 변경. 사이드바 리렌더링 하지 않음
+    content.addEventListener('keyup', async () => {
+      const titleContent = content.value;
+
+      try {
+        console.log(`${id}번 내용 변경`);
+        await put(id, 'content', titleContent);
+      } catch (error) {
+        console.error(error);
+      }
     });
   };
 
@@ -146,7 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 삭제 버튼 클릭 이벤트 추가
-  deleteBtn.addEventListener('click', deleteDocument);
+  deleteBtn.addEventListener('click', () => {
+    deleteDocument();
+  });
 });
 
 //export default fetchDocument;
