@@ -1,5 +1,3 @@
-const API = 'https://kdt-api.fe.dev-cos.com/documents/{documentId}';
-const USERNAME = 'b1jun4';
 const deleteBtn = document.querySelector('.deleteBtn');
 
 document.addEventListener('DOMContentLoaded', () => {
