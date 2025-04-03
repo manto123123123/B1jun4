@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // document 요소
         const documentList = document.createElement('li');
 
+        documentList.setAttribute('data-id', doc.id); // id를 HTML 요소에 저장
+
         // document로 이동시켜주는 a 태그
         const documentLink = document.createElement('a');
         documentLink.href = '#';
