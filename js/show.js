@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const API = 'https://kdt-api.fe.dev-cos.com/documents';
   const USERNAME = 'b1jun4';
   // posting.html에서 전체 보기 ul 태그의 id를 showAll로 설정
-  const showAll = document.getElementById('showAll');
+  showAll = document.getElementById('showAll');
   // addDocument는 파일 추가 button 태그 id
   //   const addDocument = document.getElementById('addDocument')
   //   addDocument.addEventListener('click', postDocument)
