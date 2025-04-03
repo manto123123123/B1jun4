@@ -1,26 +1,25 @@
 <!doctype html>
 <html lang="ko">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notion</title>
     <link rel="stylesheet" href="../CSS/reset.css" />
     <link rel="stylesheet" href="../CSS/main.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- 사이드바 -->
     <aside class="sideBar" id="sideBar">
-        <!-- 사이드바 헤더 -->
-        <header class="sideBarHeader">
-            <img src="../image/logo.svg" alt="로고" class="logo" />
-            <span class="workspace">OOO님의 작업 공간</span>
-            <span class="toggle-btn">
-                <img src="../image/sideBar.svg" alt="사이드바 열기/닫기" />
-            </span>
-        </header>
-        <!-- <form action="/search" method="GET">
+      <!-- 사이드바 헤더 -->
+      <header class="sideBarHeader">
+        <img src="../image/logo.svg" alt="로고" class="logo" />
+        <span class="workspace">OOO님의 작업 공간</span>
+        <span class="toggle-btn">
+          <img src="../image/sideBar.svg" alt="사이드바 열기/닫기" />
+        </span>
+      </header>
+      <!-- <form action="/search" method="GET">
             <input type="text" name="query" placeholder="검색어를 입력해주세요!" required />
             <button type="submit">🔍</button>
         </form>
@@ -42,11 +41,11 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav> -->
-        <!-- 전체 폴더 및 파일 -->
-        <nav>
-            <div>
-                <span>전체 폴더 및 파일</span>
-                <!-- <form action="">
+      <!-- 전체 폴더 및 파일 -->
+      <nav>
+        <div>
+          <span>전체 폴더 및 파일</span>
+          <!-- <form action="">
                     <label for="sortDocuments">
                         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -68,12 +67,12 @@
                         <option value="reverseAlphabet">알파벳 역순</option>
                     </select>
                 </form> -->
-            </div>
-            <ul>
-                <li>
-                    <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
-                    <a href="#">Folder</a>
-                    <!-- <button>
+        </div>
+        <ul>
+          <li>
+            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+            <a href="#">Folder</a>
+            <!-- <button>
                         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -85,12 +84,12 @@
                             </g>
                         </svg>
                     </button> -->
-                    <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
-                </li>
-                <li>
-                    <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
-                    <a href="#">Folder</a>
-                    <!-- <button>
+            <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
+          </li>
+          <li>
+            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+            <a href="#">Folder</a>
+            <!-- <button>
                         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -102,12 +101,12 @@
                             </g>
                         </svg>
                     </button> -->
-                    <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
-                </li>
-                <li>
-                    <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
-                    <a href="#">File</a>
-                    <!-- <button>
+            <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
+          </li>
+          <li>
+            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+            <a href="#">File</a>
+            <!-- <button>
                         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -119,12 +118,12 @@
                             </g>
                         </svg>
                     </button> -->
-                    <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
-                </li>
-                <li>
-                    <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
-                    <a href="#">File</a>
-                    <!-- <button>
+            <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
+          </li>
+          <li>
+            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+            <a href="#">File</a>
+            <!-- <button>
                         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -136,78 +135,82 @@
                             </g>
                         </svg>
                     </button> -->
-                    <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
-                </li>
-            </ul>
-        </nav>
+            <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
+          </li>
+        </ul>
+      </nav>
     </aside>
 
     <!-- 메인 화면 start-->
     <section class="mainContainer">
-        <!-- 메인 화면 상단 (파일 생성 버튼 영역)-->
-        <!-- <div class="mainTop">
+      <!-- 메인 화면 상단 (파일 생성 버튼 영역)-->
+      <!-- <div class="mainTop">
             <button class="addBtn">+ 글 작성하기</button>
         </div> -->
-        <!-- 메인 화면 하단 (폴더와 파일 목록) -->
-        <div class="mainBottom">
-            <h1 class="welcomeWords">OOO님의 작업 공간에 오신 것을 환영합니다.</h1>
-            <!-- 폴더와 파일 목록 컨테이너 (모든 목록이 렌더링, Grid 배치 4열) -->
-            <div class="gridContainer">
-            <!-- [폴더 생성] 버튼 (0,0에 위치해야힘)-->
-            <div class="item">
-                <div class="newFolder">+</div>
-                <div class="itemLabel">폴더 생성</div>
-            </div>
+      <!-- 메인 화면 하단 (폴더와 파일 목록) -->
+      <div class="mainBottom">
+        <h1 class="welcomeWords">OOO님의 작업 공간에 오신 것을 환영합니다.</h1>
+        <!-- 폴더와 파일 목록 컨테이너 (모든 목록이 렌더링, Grid 배치 4열) -->
+        <div class="gridContainer">
+          <!-- [폴더 생성] 버튼 (0,0에 위치해야힘)-->
+          <div class="item">
+            <div class="newFolder">+</div>
+            <div class="itemLabel">폴더 생성</div>
+          </div>
 
-            <!-- 폴더와 파일 목록들 -->
-            <div class="item">
-                <img src="../image/imoji.svg" alt="폴더" class="folder">
-                <div class="itemLabel">폴더명</div>
-                <!-- [추가 디자인!] 폴더 삭제와 이름 변경을 위한 메뉴 추가 (우클릭 시 보이게끔 구성) -->
-                <ul class="folderMenu hide">
-                <li class="deleteFolder">폴더 삭제</li>
-                <li class="renameFolder">폴더명 변경</li>
+          <!-- 폴더와 파일 목록들 -->
+          <div class="item">
+            <img src="../image/imoji.svg" alt="폴더" class="folder" />
+            <div class="itemLabel">폴더명</div>
+            <!-- [추가 디자인!] 폴더 삭제와 이름 변경을 위한 메뉴 추가 (우클릭 시 보이게끔 구성) -->
+            <ul class="folderMenu hide">
+              <li class="deleteFolder">폴더 삭제</li>
+              <li class="renameFolder">폴더명 변경</li>
             </ul>
-            </div>
-            <div class="item">
-                <img src="../image/imoji.svg" alt="폴더" class="folder">
-                <div class="itemLabel">폴더명</div>
-                <ul class="folderMenu hide">
-                <li class="deleteFolder">폴더 삭제</li>
-                <li class="renameFolder">폴더명 변경</li>
-                </ul>
-            </div>
-            <div class="item">
-                <img src="../image/imoji.svg" alt="파일" class="file">
-                <div class="itemLabel">파일명</div>
-            </div>
-            </div>
+          </div>
+          <div class="item">
+            <img src="../image/imoji.svg" alt="폴더" class="folder" />
+            <div class="itemLabel">폴더명</div>
+            <ul class="folderMenu hide">
+              <li class="deleteFolder">폴더 삭제</li>
+              <li class="renameFolder">폴더명 변경</li>
+            </ul>
+          </div>
+          <div class="item">
+            <img src="../image/imoji.svg" alt="파일" class="file" />
+            <div class="itemLabel">파일명</div>
+          </div>
         </div>
+      </div>
     </section>
     <!-- 메인 화면 end-->
 
     <!-- 모달 창 : 폴더 생성 ([폴더 생성] 클릭시 보임) -->
     <div class="folderModal hide">
-        <h2>폴더 생성</h2>
-        <!-- 모달창 메인 부분 -->
-        <div class="modalMain">
+      <h2>폴더 생성</h2>
+      <!-- 모달창 메인 부분 -->
+      <div class="modalMain">
         <!-- 우측: 폴더 이름 변경 -->
         <div class="folderNameSection">
-            <label for="folderName">폴더명 입력</label>
-            <input type="text" id="folderName" placeholder="폴더명을 입력하세요." />
-            <p class="helpText" id="nameEmpty">텍스트를 입력해 주세요.</p>
-            <p class="helpText" id="nameDuplicate">중복된 폴더명입니다.</p>
-            <p class="helpText" id="nameOver">폴더명은 10글자를 넘어서면 안됩니다.</p>
+          <label for="folderName">폴더명 입력</label>
+          <input
+            type="text"
+            id="folderName"
+            placeholder="폴더명을 입력하세요."
+          />
+          <p class="helpText" id="nameEmpty">텍스트를 입력해 주세요.</p>
+          <p class="helpText" id="nameDuplicate">중복된 폴더명입니다.</p>
+          <p class="helpText" id="nameOver">
+            폴더명은 10글자를 넘어서면 안됩니다.
+          </p>
         </div>
-        </div>
-        <!-- 모달창 취소, 확인 -->
-        <div class="modalBtns">
+      </div>
+      <!-- 모달창 취소, 확인 -->
+      <div class="modalBtns">
         <button class="cancelBtn" id="cancelBtn">취소</button>
         <button class="okBtn" id="okBtn">확인</button>
-        </div>
+      </div>
     </div>
     <!-- 모달창 end -->
-
-</body>
-
+  </body>
 </html>
