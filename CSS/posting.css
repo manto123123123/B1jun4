@@ -7,6 +7,20 @@
   float: right;
   margin-top: 50px;
 
+  .emojiBtn {
+    display: flex;
+    margin-left: 30px;
+.material-symbols-outlined {
+  padding-left: 30px;
+  cursor: pointer;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
+  }
+
   @media (max-width: 768px) {
     width: calc(100% - 200px);
   }
