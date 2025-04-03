@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function deleteDocuments() {
     try {
       const response = await fetch(
-        'https://kdt-api.fe.dev-cos.com/documents/150022', // 추후 id document에서 가져와야함
+        'https://kdt-api.fe.dev-cos.com/documents/1500223', // 추후 id document에서 가져와야함
         {
           method: 'DELETE',
           headers: {
