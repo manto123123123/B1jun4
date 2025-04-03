@@ -1,3 +1,5 @@
+import { getDocuments } from './show.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   const title = document.querySelector('.postingTitle');
   const content = document.querySelector('.postingContent');
@@ -63,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           const data = await response.json();
           console.log(data);
+          getDocuments();
         } catch (error) {
           console.error(error);
         }
