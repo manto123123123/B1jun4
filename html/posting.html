@@ -1,38 +1,37 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../CSS/reset.css" />
-    <link rel="stylesheet" href="../CSS/posting.css" />
-    <link rel="stylesheet" href="../CSS/sideBar.css" />
-    <scirpt src="../js/delete.js"></scirpt>
-    <!-- 이모지를 위한 외부 라이브러리 -->
-    <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>
-    <scirpt src="../js/icon.js"></scirpt>
-    <scirpt src="../js/posting.js"></scirpt>
-    <scirpt src="../js/postSave.js"></scirpt>
-    <scirpt src="../js/show.js"></scirpt>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add"
-    />
-  </head>
 
-  <body>
-    <!-- 사이드바 -->
-    <aside class="sideBar" id="sideBar">
-      <!-- 사이드바 헤더 -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../CSS/reset.css" />
+  <link rel="stylesheet" href="../CSS/posting.css" />
+  <link rel="stylesheet" href="../CSS/sideBar.css" />
+  <scirpt src="../js/delete.js"></scirpt>
+  <!-- 이모지를 위한 외부 라이브러리 -->
+  <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>
+  <script src="../js/icon.js"></script>
+  <script src="../js/posting.js"></script>
+  <script src="../js/postSave.js"></script>
+  <script src="../js/show.js"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add" />
+</head>
 
-      <header class="sideBarHeader">
-        <img src="../image/logo.svg" alt="로고" class="logo" />
-        <span class="workspace">OOO님의 작업 공간</span>
-        <span class="toggleBtn">
-          <img src="../image/sideBar.svg" alt="사이드바 열기/닫기" />
-        </span>
-      </header>
-      <!-- 
+<body>
+  <!-- 사이드바 -->
+  <aside class="sideBar" id="sideBar">
+    <!-- 사이드바 헤더 -->
+
+    <header class="sideBarHeader">
+      <img src="../image/logo.svg" alt="로고" class="logo" />
+      <span class="workspace">OOO님의 작업 공간</span>
+      <span class="toggleBtn">
+        <img src="../image/sideBar.svg" alt="사이드바 열기/닫기" />
+      </span>
+    </header>
+    <!-- 
         <form action="/search" method="GET">
             <input type="text" name="query" placeholder="검색어를 입력해주세요!" required />
             <button type="submit">🔍</button>
@@ -55,11 +54,11 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav> -->
-      <!-- 전체 폴더 및 파일 -->
-      <nav class="documentContainer">
-        <div>
-          전체 파일 보기
-          <!-- 
+    <!-- 전체 폴더 및 파일 -->
+    <nav class="documentContainer">
+      <div>
+        전체 파일 보기
+        <!-- 
                 <form action="">
                     <label for="sortDocuments">
                         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
@@ -83,16 +82,16 @@
                     </select>
                 </form>
                 -->
-        </div>
-        <ul>
-          <li>
-            <i class="arrow right"></i>
-            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
-            <a href="#">Document</a>
-            <button>
-              <span class="material-symbols-outlined">add</span>
-            </button>
-            <!-- 
+      </div>
+      <ul>
+        <li>
+          <i class="arrow right"></i>
+          <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+          <a href="#">Document</a>
+          <button>
+            <span class="material-symbols-outlined">add</span>
+          </button>
+          <!-- 
                     <button>
                         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -106,8 +105,8 @@
                         </svg>
                     </button> 
                     -->
-            <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
-            <!-- <button>
+          <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
+          <!-- <button>
             <svg class="addDocumentBtn" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -119,15 +118,15 @@
               </g>
             </svg>
           </button> -->
-          </li>
-          <li>
-            <i class="arrow right"></i>
-            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
-            <a href="#">Document</a>
-            <button>
-              <span class="material-symbols-outlined">add</span>
-            </button>
-            <!-- <button>
+        </li>
+        <li>
+          <i class="arrow right"></i>
+          <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+          <a href="#">Document</a>
+          <button>
+            <span class="material-symbols-outlined">add</span>
+          </button>
+          <!-- <button>
                         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -139,8 +138,8 @@
                             </g>
                         </svg>
                     </button> -->
-            <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
-            <!-- <button>
+          <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
+          <!-- <button>
             <svg class="addDocumentBtn" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -152,16 +151,16 @@
               </g>
             </svg>
           </button> -->
-          </li>
-          <li>
-            <i class="arrow right"></i>
+        </li>
+        <li>
+          <i class="arrow right"></i>
 
-            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
-            <a href="#">Document</a>
-            <button>
-              <span class="material-symbols-outlined">add</span>
-            </button>
-            <!-- <button>
+          <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+          <a href="#">Document</a>
+          <button>
+            <span class="material-symbols-outlined">add</span>
+          </button>
+          <!-- <button>
                         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -173,7 +172,7 @@
                             </g>
                         </svg>
                     </button> -->
-            <!-- <button>
+          <!-- <button>
             <svg class="addDocumentBtn" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -185,15 +184,15 @@
               </g>
             </svg>
           </button> -->
-          </li>
-          <li>
-            <i class="arrow right"></i>
-            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
-            <a href="#">Document</a>
-            <button>
-              <span class="material-symbols-outlined">add</span>
-            </button>
-            <!-- <button>
+        </li>
+        <li>
+          <i class="arrow right"></i>
+          <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+          <a href="#">Document</a>
+          <button>
+            <span class="material-symbols-outlined">add</span>
+          </button>
+          <!-- <button>
                         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -205,8 +204,8 @@
                             </g>
                         </svg>
                     </button> -->
-            <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
-            <!-- <button>
+          <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
+          <!-- <button>
             <svg class="addDocumentBtn" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -218,12 +217,12 @@
               </g>
             </svg>
           </button> -->
-          </li>
-        </ul>
-      </nav>
-    </aside>
-    <!-- 글쓰기 화면 상단 메뉴 컨테이너 -->
-    <!-- <div class="topMenuContainer">
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <!-- 글쓰기 화면 상단 메뉴 컨테이너 -->
+  <!-- <div class="topMenuContainer">
         <div class="buttonMenu">
             <div class="buttonBack">
                 <button class="back"></button>
@@ -298,25 +297,16 @@
         </div>
     </div> -->
 
-    <section class="postingSection">
-      <!-- 이모지 선택 -->
-      <div class="emojiBtn" id="emojiBtn">아이콘</div>
-      <input
-        type="text"
-        class="postingTitle"
-        contenteditable="true"
-        placeholder="제목"
-      />
-      <hr />
-      <textarea
-        class="postingContent"
-        contenteditable="true"
-        spellcheck="false"
-        placeholder="내용을 입력하세요"
-      ></textarea>
-    </section>
-    <div class="deleteBtnContainer">
-      <button type="button" class="deleteBtn">삭제하기</button>
-    </div>
-  </body>
+  <section class="postingSection">
+    <!-- 이모지 선택 -->
+    <div class="emojiBtn" id="emojiBtn">아이콘</div>
+    <input type="text" class="postingTitle" contenteditable="true" placeholder="제목" />
+    <hr />
+    <textarea class="postingContent" contenteditable="true" spellcheck="false" placeholder="내용을 입력하세요"></textarea>
+  </section>
+  <div class="deleteBtnContainer">
+    <button type="button" class="deleteBtn">삭제하기</button>
+  </div>
+</body>
+
 </html>
