@@ -1,10 +1,12 @@
+import { getDocuments } from './show.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   const title = document.querySelector('.postingTitle');
   const content = document.querySelector('.postingContent');
   //const pathname = window.location.pathname;
   //const id = pathname.split('/')[3];
   let id;
-  const USERNAME = 'b1jun4';
+  const XUSERNAME = 'b1jun4';
 
   const showAll = document.getElementById('showAll');
   showAll.addEventListener('click', (event) => {
@@ -50,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const response = await fetch(API_PUT, {
             method: 'PUT',
             headers: {
-              'x-username': USERNAME,
+              'x-username': XUSERNAME,
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
@@ -61,8 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
           if (!response.ok) {
             throw new Error('Network response was not ok!');
           }
-          const data = response.json();
+          const data = await response.json();
           console.log(data);
+          getDocuments();
         } catch (error) {
           console.error(error);
         }
