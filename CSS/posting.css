@@ -3,7 +3,7 @@
 
 .postingSection {
   position: relative;
-  width: 80%;
+  width: calc(100% - 255px);
   float: right;
   margin-top: 100px;
 }
@@ -26,7 +26,7 @@ hr {
 
 .postingContent {
   margin-left: 30px;
-  height: 80vh;
+  height: 70vh;
   width: 95%;
   resize: none;
   line-height: 1.5;
@@ -48,7 +48,7 @@ hr {
 
 .deleteBtnContainer {
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   right: 20px;
 }
 
@@ -58,4 +58,12 @@ hr {
   background-color: var(--main-bg-color2);
   color: var(--main-point-color2);
   cursor: pointer;
+  border-radius: 8%;
+  transition: all 0.1s linear;
+
+}
+
+.deleteBtn:hover {
+  background-color: var(--main-bg-color3);
+  color: var(--main-point-color2);
 }
