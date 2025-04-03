@@ -1,5 +1,5 @@
 // CommonJS 방식
-const eslintPluginPrettier = require('eslint-plugin-prettier')
+const eslintPluginPrettier = require('eslint-plugin-prettier');
 
 /** @type {import("eslint").ESLint.ConfigData} */
 module.exports = [
@@ -20,4 +20,4 @@ module.exports = [
       eqeqeq: 'error',
     },
   },
-]
+];
