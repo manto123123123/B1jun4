@@ -1,5 +1,5 @@
-const API = 'https://kdt-api.fe.dev-cos.com/documents'
-const USERNAME = 'b1jun4'
+const API = 'https://kdt-api.fe.dev-cos.com/documents';
+const USERNAME = 'b1jun4';
 
 document.addEventListener('DOMContentLoaded', () => {
   // addDocument는 파일 추가 button 태그 id
@@ -18,15 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
           title: '새 파일',
           parent: null,
         }),
-      })
+      });
 
       if (!response.ok) {
-        throw new Error('Network response was not ok!')
+        throw new Error('Network response was not ok!');
       }
-      const data = await response.json()
-      console.log('성공: ', data)
+      const data = await response.json();
+      console.log('성공: ', data);
     } catch (error) {
-      console.error('실패: ', error)
+      console.error('실패: ', error);
     }
   }
-})
+});
