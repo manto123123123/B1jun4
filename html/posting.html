@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/reset.css" />
+    <link rel="stylesheet" href="/CSS/posting.css" />
+  </head>
+  <body>
+    <!-- 사이드바 -->
+    <aside class="sideBar" id="sideBar">
+      <!-- 사이드바 헤더 -->
+      <header class="sideBarHeader">
+        <img src="../image/logo.svg" alt="로고" class="logo" />
+        <span class="workspace">OOO님의 작업 공간</span>
+        <span class="toggle-btn">
+          <img src="../image/sideBar.svg" alt="사이드바 열기/닫기" />
+        </span>
+      </header>
+      <!-- 
+        <form action="/search" method="GET">
+            <input type="text" name="query" placeholder="검색어를 입력해주세요!" required />
+            <button type="submit">🔍</button>
+        </form>
+        <nav class="bookMark">
+            <span class="BookMarkHeader on"></span> 
+            <span>즐겨찾기 폴더 및 파일 <img src="../image/flowbite_sort-outline.svg" /></span>
+            <select id="sortBox">
+                <option value="recent" selected>최근 방문순</option>
+                <option value="alphabet">알파벳순</option>
+                <option value="reverseAlphabet">알파벳 역순</option>
+            </select> 
+            <ul>
+                <li>
+                    <img src="../image/imoji.svg" alt="이모티콘" class="bookMarkIcon" />
+                    <a href="#">Home</a>
+                    <img src="../image/favoriteIcon.svg" alt="즐겨찾기" class="favoriteIcon" />
+                </li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav> -->
+      <!-- 전체 폴더 및 파일 -->
+      <nav>
+        <div>
+          전체 파일 보기
+          <!-- 
+                <form action="">
+                    <label for="sortDocuments">
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M11.1924 5.65685C11.5829 5.26633 11.5829 4.63316 11.1924 4.24264L8.36397 1.41421C8.30576 1.356 8.24485 1.30212 8.18165 1.25259C7.50286 0.720577 6.55947 0.689024 5.84929 1.15793C5.73839 1.23115 5.63317 1.31658 5.53554 1.41421L2.70711 4.24264C2.31658 4.63316 2.31658 5.26633 2.70711 5.65685C3.09763 6.04738 3.7308 6.04738 4.12132 5.65685L6.00003 3.77814V18C6.00003 18.5523 6.44775 19 7.00003 19C7.55232 19 8.00003 18.5523 8.00003 18V3.8787L9.77818 5.65685C10.1687 6.04737 10.8019 6.04737 11.1924 5.65685Z"
+                                    fill="#c1c1c1"></path>
+                                <path
+                                    d="M12.7071 18.3432C12.3166 18.7337 12.3166 19.3668 12.7071 19.7574L15.5355 22.5858C15.6332 22.6834 15.7384 22.7689 15.8493 22.8421C16.6256 23.3546 17.6805 23.2692 18.364 22.5858L21.1924 19.7574C21.5829 19.3668 21.5829 18.7337 21.1924 18.3432C20.8019 17.9526 20.1687 17.9526 19.7782 18.3432L18 20.1213L18 6C18 5.44771 17.5523 5 17 5C16.4477 5 16 5.44771 16 6L16 20.2218L14.1213 18.3432C13.7308 17.9526 13.0976 17.9526 12.7071 18.3432Z"
+                                    fill="#c1c1c1"></path>
+                            </g>
+                        </svg>
+                    </label>
+                    <select name="sortDocuments" id="sortDocuments">
+                        <option value="recent" selected>최근 방문순</option>
+                        <option value="alphabet">알파벳순</option>
+                        <option value="reverseAlphabet">알파벳 역순</option>
+                    </select>
+                </form>
+                -->
+        </div>
+        <ul id="showAll">
+          <li>
+            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+            <a href="#">Document</a>
+            <!-- 
+                    <button>
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"
+                                    stroke="#000000" stroke-width="1.5"></path>
+                            </g>
+                        </svg>
+                    </button> 
+                    -->
+            <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
+            <button>
+              <svg
+                class="addDocumentBtn"
+                width="20px"
+                height="20px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H14C14.5523 23 15 22.5523 15 22C15 21.4477 14.5523 21 14 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V8C19 8.55228 19.4477 9 20 9C20.5523 9 21 8.55228 21 8V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12V15H15C14.4477 15 14 15.4477 14 16C14 16.5523 14.4477 17 15 17H18V20C18 20.5523 18.4477 21 19 21C19.5523 21 20 20.5523 20 20V17H23C23.5523 17 24 16.5523 24 16C24 15.4477 23.5523 15 23 15H20V12Z"
+                    fill="#C1C1C1"
+                  ></path>
+                </g>
+              </svg>
+            </button>
+          </li>
+          <li>
+            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+            <a href="#">Document</a>
+            <!-- <button>
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"
+                                    stroke="#000000" stroke-width="1.5"></path>
+                            </g>
+                        </svg>
+                    </button> -->
+            <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
+            <button>
+              <svg
+                class="addDocumentBtn"
+                width="20px"
+                height="20px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H14C14.5523 23 15 22.5523 15 22C15 21.4477 14.5523 21 14 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V8C19 8.55228 19.4477 9 20 9C20.5523 9 21 8.55228 21 8V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12V15H15C14.4477 15 14 15.4477 14 16C14 16.5523 14.4477 17 15 17H18V20C18 20.5523 18.4477 21 19 21C19.5523 21 20 20.5523 20 20V17H23C23.5523 17 24 16.5523 24 16C24 15.4477 23.5523 15 23 15H20V12Z"
+                    fill="#C1C1C1"
+                  ></path>
+                </g>
+              </svg>
+            </button>
+          </li>
+          <li>
+            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+            <a href="#">Document</a>
+            <!-- <button>
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"
+                                    stroke="#000000" stroke-width="1.5"></path>
+                            </g>
+                        </svg>
+                    </button> -->
+            <button>
+              <svg
+                class="addDocumentBtn"
+                width="20px"
+                height="20px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H14C14.5523 23 15 22.5523 15 22C15 21.4477 14.5523 21 14 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V8C19 8.55228 19.4477 9 20 9C20.5523 9 21 8.55228 21 8V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12V15H15C14.4477 15 14 15.4477 14 16C14 16.5523 14.4477 17 15 17H18V20C18 20.5523 18.4477 21 19 21C19.5523 21 20 20.5523 20 20V17H23C23.5523 17 24 16.5523 24 16C24 15.4477 23.5523 15 23 15H20V12Z"
+                    fill="#C1C1C1"
+                  ></path>
+                </g>
+              </svg>
+            </button>
+          </li>
+          <li>
+            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+            <a href="#">Document</a>
+            <!-- <button>
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"
+                                    stroke="#000000" stroke-width="1.5"></path>
+                            </g>
+                        </svg>
+                    </button> -->
+            <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
+            <button>
+              <svg
+                class="addDocumentBtn"
+                width="20px"
+                height="20px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H14C14.5523 23 15 22.5523 15 22C15 21.4477 14.5523 21 14 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V8C19 8.55228 19.4477 9 20 9C20.5523 9 21 8.55228 21 8V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12V15H15C14.4477 15 14 15.4477 14 16C14 16.5523 14.4477 17 15 17H18V20C18 20.5523 18.4477 21 19 21C19.5523 21 20 20.5523 20 20V17H23C23.5523 17 24 16.5523 24 16C24 15.4477 23.5523 15 23 15H20V12Z"
+                    fill="#C1C1C1"
+                  ></path>
+                </g>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <!-- 글쓰기 화면 상단 메뉴 컨테이너 -->
+    <!-- <div class="topMenuContainer">
+        <div class="buttonMenu">
+            <div class="buttonBack">
+                <button class="back"></button>
+            </div>
+            <div class="selectFolder">
+                <select name="folder" id="folder">
+                    <option value="default">폴더 선택</option>
+                    <option value="folder1">folder1</option>
+                    <option value="folder2">folder2</option>
+                    <option value="folder3">folder3</option>
+                </select>
+            </div>
+        </div>
+        <div class="pathMenu">
+            <div class="pathGroup">
+                <div class="pathFolderIcon"></div>
+                <div class="pathName">Folder 1</div>
+            </div>
+            <div class="pathGroup">
+                <div class="pathSlash">/</div>
+                <div class="pathFolderIcon"></div>
+                <div class="pathName">Folder 1-1</div>
+            </div>
+            <div class="pathGroup">
+                <div class="pathSlash">/</div>
+                <div class="pathFileIcon"></div>
+                <div class="pathName">Folder 1-1</div>
+            </div>
+        </div>
+        <div class="textBarMenu">
+            <div class="fontSection">
+                <select name="fontSize" id="fontSize">
+                    <option value="12px">12px</option>
+                    <option value="16px">16px</option>
+                    <option value="20px">20px</option>
+                    <option value="24px">24px</option>
+                    <option value="28px">28px</option>
+                    <option value="32px">32px</option>
+                </select>
+                <select name="font" id="font">
+                    <option value="basic">기본서체</option>
+                    <option value="bonGothicR">본고딕 R</option>
+                    <option value="bonGothicL">본고딕 L</option>
+                    <option value="nanumGothic">나눔고딕</option>
+                    <option value="gungseo">궁서</option>
+                </select>
+            </div>
+            <div class="sectionLine"></div>
+
+            <div class="decoSection">
+                <button class="bold"><div class="iconBold"></div>굵게</button>
+                <button class="italic"><div class="iconItalic"></div>기울임</button>
+                <button class="underline"><div class="iconUnderline"></div>밑줄</button>
+                <button class="crossline"><div class="iconCrossline"></div>취소선</button>
+                <button class="fontColor"><div class="iconFontColor"></div>글자색</button>
+                <button class="fontBackgroundColor"><div class="iconFontBackgroundColor"></div>배경색</button>
+                <button class="hrline"><div class="iconHrline"></div>구분선</button>
+            </div>
+
+            <div class="sectionLine"></div>
+
+            <div class="alignSection">
+                <button class="alignDefault"><div class="iconAlignDefault"></div>양쪽 정렬</button>
+                <button class="alignLeft"><div class="iconAlignLeft"></div>왼쪽 정렬</button>
+                <button class="alignCenter"><div class="iconAlignCenter"></div>가운데 정렬</button>
+                <button class="alignRight"><div class="iconAlignRight"></div>오른쪽 정렬</button>
+            </div>
+
+            <div class="toggleBtnTextBar">
+                <button class="toggleBtn"></button>
+            </div>
+        </div>
+    </div> -->
+
+    <section class="postingSection">
+      <!-- 이모지 선택 -->
+      <input
+        type="text"
+        class="postingTitle"
+        contenteditable="true"
+        placeholder="제목"
+      />
+      <hr />
+      <textarea
+        class="postingContent"
+        contenteditable="true"
+        spellcheck="false"
+        placeholder="내용을 입력하세요"
+      ></textarea>
+    </section>
+    <div class="deleteBtnContainer">
+      <button type="button" class="deleteBtn">삭제하기</button>
+    </div>
+  </body>
+  <script src="/js/delete.js"></script>
+  <script src="/js/show.js"></script>
+  <script src="/js/postSave.js"></script>
+</html>

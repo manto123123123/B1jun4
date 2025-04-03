@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notion</title>
+    <link rel="stylesheet" href="../CSS/reset.css" />
+    <link rel="stylesheet" href="../CSS/main.css" />
+  </head>
+
+  <body>
+    <!-- 사이드바 -->
+    <aside class="sideBar" id="sideBar">
+      <!-- 사이드바 헤더 -->
+      <header class="sideBarHeader">
+        <img src="../image/logo.svg" alt="로고" class="logo" />
+        <span class="workspace">OOO님의 작업 공간</span>
+        <span class="toggle-btn">
+          <img src="../image/sideBar.svg" alt="사이드바 열기/닫기" />
+        </span>
+      </header>
+      <!-- <form action="/search" method="GET">
+            <input type="text" name="query" placeholder="검색어를 입력해주세요!" required />
+            <button type="submit">🔍</button>
+        </form>
+        <nav class="bookMark">
+            <span class="BookMarkHeader on"></span> 
+            <span>즐겨찾기 폴더 및 파일 <img src="../image/flowbite_sort-outline.svg" /></span>
+            <select id="sortBox">
+                <option value="recent" selected>최근 방문순</option>
+                <option value="alphabet">알파벳순</option>
+                <option value="reverseAlphabet">알파벳 역순</option>
+            </select> 
+            <ul>
+                <li>
+                    <img src="../image/imoji.svg" alt="이모티콘" class="bookMarkIcon" />
+                    <a href="#">Home</a>
+                    <img src="../image/favoriteIcon.svg" alt="즐겨찾기" class="favoriteIcon" />
+                </li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav> -->
+      <!-- 전체 폴더 및 파일 -->
+      <nav>
+        <div>
+          <span>전체 폴더 및 파일</span>
+          <!-- <form action="">
+                    <label for="sortDocuments">
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M11.1924 5.65685C11.5829 5.26633 11.5829 4.63316 11.1924 4.24264L8.36397 1.41421C8.30576 1.356 8.24485 1.30212 8.18165 1.25259C7.50286 0.720577 6.55947 0.689024 5.84929 1.15793C5.73839 1.23115 5.63317 1.31658 5.53554 1.41421L2.70711 4.24264C2.31658 4.63316 2.31658 5.26633 2.70711 5.65685C3.09763 6.04738 3.7308 6.04738 4.12132 5.65685L6.00003 3.77814V18C6.00003 18.5523 6.44775 19 7.00003 19C7.55232 19 8.00003 18.5523 8.00003 18V3.8787L9.77818 5.65685C10.1687 6.04737 10.8019 6.04737 11.1924 5.65685Z"
+                                    fill="#c1c1c1"></path>
+                                <path
+                                    d="M12.7071 18.3432C12.3166 18.7337 12.3166 19.3668 12.7071 19.7574L15.5355 22.5858C15.6332 22.6834 15.7384 22.7689 15.8493 22.8421C16.6256 23.3546 17.6805 23.2692 18.364 22.5858L21.1924 19.7574C21.5829 19.3668 21.5829 18.7337 21.1924 18.3432C20.8019 17.9526 20.1687 17.9526 19.7782 18.3432L18 20.1213L18 6C18 5.44771 17.5523 5 17 5C16.4477 5 16 5.44771 16 6L16 20.2218L14.1213 18.3432C13.7308 17.9526 13.0976 17.9526 12.7071 18.3432Z"
+                                    fill="#c1c1c1"></path>
+                            </g>
+                        </svg>
+                    </label>
+                    <select name="sortDocuments" id="sortDocuments">
+                        <option value="recent" selected>최근 방문순</option>
+                        <option value="alphabet">알파벳순</option>
+                        <option value="reverseAlphabet">알파벳 역순</option>
+                    </select>
+                </form> -->
+        </div>
+        <ul>
+          <li>
+            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+            <a href="#">Folder</a>
+            <!-- <button>
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"
+                                    stroke="#000000" stroke-width="1.5"></path>
+                            </g>
+                        </svg>
+                    </button> -->
+            <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
+          </li>
+          <li>
+            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+            <a href="#">Folder</a>
+            <!-- <button>
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"
+                                    stroke="#000000" stroke-width="1.5"></path>
+                            </g>
+                        </svg>
+                    </button> -->
+            <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
+          </li>
+          <li>
+            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+            <a href="#">File</a>
+            <!-- <button>
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"
+                                    stroke="#000000" stroke-width="1.5"></path>
+                            </g>
+                        </svg>
+                    </button> -->
+            <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
+          </li>
+          <li>
+            <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
+            <a href="#">File</a>
+            <!-- <button>
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"
+                                    stroke="#000000" stroke-width="1.5"></path>
+                            </g>
+                        </svg>
+                    </button> -->
+            <!-- 파일 추가 버튼 추가하게 될 수도 있음 -->
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- 메인 화면 start-->
+    <section class="mainContainer">
+      <!-- 메인 화면 상단 (파일 생성 버튼 영역)-->
+      <!-- <div class="mainTop">
+            <button class="addBtn">+ 글 작성하기</button>
+        </div> -->
+      <!-- 메인 화면 하단 (폴더와 파일 목록) -->
+      <div class="mainBottom">
+        <h1 class="welcomeWords">OOO님의 작업 공간에 오신 것을 환영합니다.</h1>
+        <!-- 폴더와 파일 목록 컨테이너 (모든 목록이 렌더링, Grid 배치 4열) -->
+        <div class="gridContainer">
+          <!-- [폴더 생성] 버튼 (0,0에 위치해야힘)-->
+          <div class="item">
+            <div class="newFolder">+</div>
+            <div class="itemLabel">폴더 생성</div>
+          </div>
+
+          <!-- 폴더와 파일 목록들 -->
+          <div class="item">
+            <img src="../image/imoji.svg" alt="폴더" class="folder" />
+            <div class="itemLabel">폴더명</div>
+            <!-- [추가 디자인!] 폴더 삭제와 이름 변경을 위한 메뉴 추가 (우클릭 시 보이게끔 구성) -->
+            <ul class="folderMenu hide">
+              <li class="deleteFolder">폴더 삭제</li>
+              <li class="renameFolder">폴더명 변경</li>
+            </ul>
+          </div>
+          <div class="item">
+            <img src="../image/imoji.svg" alt="폴더" class="folder" />
+            <div class="itemLabel">폴더명</div>
+            <ul class="folderMenu hide">
+              <li class="deleteFolder">폴더 삭제</li>
+              <li class="renameFolder">폴더명 변경</li>
+            </ul>
+          </div>
+          <div class="item">
+            <img src="../image/imoji.svg" alt="파일" class="file" />
+            <div class="itemLabel">파일명</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 메인 화면 end-->
+
+    <!-- 모달 창 : 폴더 생성 ([폴더 생성] 클릭시 보임) -->
+    <div class="folderModal hide">
+      <h2>폴더 생성</h2>
+      <!-- 모달창 메인 부분 -->
+      <div class="modalMain">
+        <!-- 우측: 폴더 이름 변경 -->
+        <div class="folderNameSection">
+          <label for="folderName">폴더명 입력</label>
+          <input
+            type="text"
+            id="folderName"
+            placeholder="폴더명을 입력하세요."
+          />
+          <p class="helpText" id="nameEmpty">텍스트를 입력해 주세요.</p>
+          <p class="helpText" id="nameDuplicate">중복된 폴더명입니다.</p>
+          <p class="helpText" id="nameOver">
+            폴더명은 10글자를 넘어서면 안됩니다.
+          </p>
+        </div>
+      </div>
+      <!-- 모달창 취소, 확인 -->
+      <div class="modalBtns">
+        <button class="cancelBtn" id="cancelBtn">취소</button>
+        <button class="okBtn" id="okBtn">확인</button>
+      </div>
+    </div>
+    <!-- 모달창 end -->
+  </body>
+</html>
