@@ -1,4 +1,5 @@
 import { postDocument } from './posting.js';
+//import fetchDocument from './delete.js';
 let showAll = document.getElementById('showAll');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,7 +28,7 @@ export async function getDocuments() {
     console.log('성공: ', data);
 
     let depth = 0;
-
+    showAll.innerHTML = '';
     findDocuments(data, depth);
   } catch (error) {
     console.error('실패: ', error);
@@ -82,11 +83,12 @@ function showDocuments(doc, depth) {
   addDocumentBtn.addEventListener('click', () => {
     postDocument(doc.id);
     getDocuments();
+    //fetchDocument(doc.id);
   });
 
   documentList.appendChild(addDocumentBtn);
 
-  console.log(documentList);
+  //console.log(documentList);
 
   // ul 태그 자식으로 documentList 추가
   showAll.appendChild(documentList);
