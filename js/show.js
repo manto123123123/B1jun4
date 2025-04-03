@@ -48,6 +48,7 @@ function showDocuments(doc, depth) {
   const title = doc.title;
   // document 요소
   const documentList = document.createElement('li');
+  documentList.setAttribute('data-id', doc.id);
   const liClassName = `depth${depth}`;
   documentList.classList.add(liClassName);
 
