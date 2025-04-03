@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const response = await fetch(API, {
         method: 'POST', // POST
         headers: {
-          'Content-Type': 'application/json;charset=utf-8', // title null로 들어가는 것 해결
+          'Content-Type': 'application/json',
           'x-username': USERNAME,
         },
         body: JSON.stringify({
