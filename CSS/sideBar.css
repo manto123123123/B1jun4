@@ -1,7 +1,6 @@
 @import url(./root.css);
 @import url(./reset.css);
 
-
 .sideBar {
   background-color: var(--main-bg-color1);
   width: 255px;
@@ -9,13 +8,26 @@
   display: block;
   float: left;
   position: relative;
-  transition: width 0.1s ease-in-out;
+  transition: transform 0.3s ease-in-out; /* 부드러운 애니메이션 */
 
   @media (max-width: 768px) {
     width: 200px;
   }
 }
 
+/* 사이드바가 접힐 때 적용할 클래스 */
+.sideBar.hidden {
+  transform: translateX(-80%);
+}
+
+.documentContainer.hidden {
+  display: block;
+}
+
+.flipped {
+  transform: scaleX(-1); /* 좌우 반전 */
+  transition: transform 0.3s ease-in-out; /* 부드러운 애니메이션 */
+}
 
 .sideBarHeader {
   position: absolute;
@@ -36,7 +48,6 @@
   }
 
   @media (max-width: 768px) {
-    
     .workspace {
       padding: 0;
       font-size: 12px;
@@ -66,11 +77,9 @@
   div {
     padding-left: 10px;
     transition: font-size 0.1s ease-in-out;
-
   }
   span {
     font-weight: 500;
-
   }
   ul {
     li {
@@ -148,11 +157,10 @@ button {
 
 .material-symbols-outlined {
   font-variation-settings:
-      'FILL' 0,
-      'wght' 400,
-      'GRAD' 0,
-      'opsz' 24;
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
   color: #c1c1c1;
   cursor: pointer;
 }
-
