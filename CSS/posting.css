@@ -5,7 +5,11 @@
   position: relative;
   width: calc(100% - 255px);
   float: right;
-  margin-top: 100px;
+  margin-top: 50px;
+
+  @media (max-width: 768px) {
+    width: calc(100% - 200px);
+  }
 }
 
 .postingTitle {
@@ -31,6 +35,10 @@ hr {
   resize: none;
   line-height: 1.5;
   font-size: var(--main-content-font-size);
+
+  @media (max-width: 768px) {
+    width: 85%;
+  }
 }
 
 .postingContent::placeholder {
