@@ -7,18 +7,14 @@
     <link rel="stylesheet" href="../CSS/reset.css" />
     <link rel="stylesheet" href="../CSS/posting.css" />
     <link rel="stylesheet" href="../CSS/sideBar.css" />
-    <scirpt src="../js/delete.js"></scirpt>
+    <script src="../js/delete.js"></script>
     <!-- 이모지를 위한 외부 라이브러리 -->
     <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>
-    <scirpt src="../js/icon.js"></scirpt>
-    <scirpt src="../js/posting.js"></scirpt>
-    <scirpt src="../js/postSave.js"></scirpt>
-    <scirpt src="../js/show.js"></scirpt>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add"
-    />
-  </head>
+    <script src="../js/icon.js"></script>
+    <script src="../js/posting.js"></script>
+    <script src="../js/postSave.js"></script>
+    <script src="../js/show.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 
   <body>
     <!-- 사이드바 -->
@@ -84,7 +80,7 @@
                 </form>
                 -->
         </div>
-        <ul>
+        <ul id="showAll">
           <li>
             <i class="arrow right"></i>
             <img src="../image/imoji.svg" alt="이모티콘" class="documentIcon" />
@@ -300,7 +296,9 @@
 
     <section class="postingSection">
       <!-- 이모지 선택 -->
-      <div class="emojiBtn" id="emojiBtn">아이콘</div>
+      <div class="emojiBtn" id="emojiBtn">
+        <span class="material-symbols-outlined" id="icon">add_reaction</span>
+      </div>
       <input
         type="text"
         class="postingTitle"
