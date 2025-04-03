@@ -1,11 +1,12 @@
+import { postDocument } from './posting.js';
 let showAll = document.getElementById('showAll');
+
 document.addEventListener('DOMContentLoaded', () => {
   // posting.html에서 전체 보기 ul 태그의 id를 showAll로 설정
 
   // addDocument는 파일 추가 button 태그 id
   //   const addDocument = document.getElementById('addDocument')
   //   addDocument.addEventListener('click', postDocument)
-
   getDocuments();
 });
 export async function getDocuments() {
@@ -72,10 +73,17 @@ function showDocuments(doc, depth) {
 
   // documentList 자식으로 파일 추가 버튼 추가
   const addDocumentBtn = document.createElement('button');
+  addDocumentBtn.classList.add('addDocumentBtn');
   const fileAdd = document.createElement('span');
   fileAdd.textContent = 'add';
   fileAdd.classList.add('material-symbols-outlined');
   addDocumentBtn.appendChild(fileAdd);
+
+  addDocumentBtn.addEventListener('click', () => {
+    postDocument(doc.id);
+    getDocuments();
+  });
+
   documentList.appendChild(addDocumentBtn);
 
   console.log(documentList);
