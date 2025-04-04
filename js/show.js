@@ -2,6 +2,7 @@
 import { getAll, post } from './api/index.js';
 
 let showAll = document.getElementById('showAll');
+const rootAdd = document.getElementById('rootAdd');
 
 const openState = {};
 
@@ -12,6 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   //   const addDocument = document.getElementById('addDocument')
   //   addDocument.addEventListener('click', postDocument)
   getDocuments();
+
+  rootAdd.addEventListener('click', (event) => {
+    event.preventDefault();
+    postDocuments(null);
+  });
 });
 
 export async function getDocuments() {
@@ -28,6 +34,7 @@ export async function getDocuments() {
 async function postDocuments(parentId) {
   try {
     const data = await post(parentId);
+    getDocuments();
   } catch (error) {
     console.error('실패: ', error);
   }
@@ -116,9 +123,15 @@ function showDocuments(doc, depth) {
   addDocumentBtn.appendChild(fileAdd);
 
   addDocumentBtn.addEventListener('click', async (event) => {
-    // postDocument(doc.id);
     event.preventDefault();
     event.stopPropagation();
+    // postDocument(doc.id);
+    // console.log(depth);
+    if (depth >= 3) {
+      alert('하위 문서는 3개까지만 추가 가능해요🥲');
+      return;
+    }
+    
     await postDocuments(doc.id);
     openState[doc.id] = true;
 
@@ -127,7 +140,7 @@ function showDocuments(doc, depth) {
 
   documentList.appendChild(addDocumentBtn);
 
-  console.log(documentList);
+  //console.log(documentList);
 
   return documentList;
 }

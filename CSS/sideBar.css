@@ -13,7 +13,6 @@
   transition: transform 0.1s ease-in-out;
   overflow: scroll;
 
-
   @media (max-width: 768px) {
     width: 200px;
   }
@@ -91,24 +90,23 @@
     button {
       margin-left: 132px;
       background-color: var(--main-bg-color1);
-      ;
     }
   }
   span {
     font-weight: 500;
 
-  @media (max-width: 768px) {
-    .documentContainer {
-      font-size: 12px;
-      align-items: center;
-      justify-content: center;
-  
-      ul > li > a {
-        margin-right: 45px;
+    @media (max-width: 768px) {
+      .documentContainer {
+        font-size: 12px;
+        align-items: center;
+        justify-content: center;
+
+        ul > li > a {
+          margin-right: 45px;
+        }
       }
     }
   }
-}
 
   #showAll {
     li {
@@ -120,7 +118,6 @@
       padding: 0 12px;
       justify-content: space-between;
       background-color: var(--main-bg-color1);
-      
 
       &:hover {
         background-color: var(--main-bg-color3);
@@ -129,14 +126,14 @@
       &:hover .arrow {
         background-color: var(--main-bg-color3);
       }
-      
+
       a {
         width: 85%;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
       }
-      
+
       .arrow {
         border: solid #c1c1c1;
         border-width: 0 3px 3px 0;
@@ -158,7 +155,7 @@
         transform: rotate(-45deg);
         -webkit-transform: rotate(-45deg);
       }
-      
+
       button {
         display: flex;
         align-items: center;
@@ -169,7 +166,7 @@
     }
     .depth1 {
       margin-left: 15px;
-      
+
       .addDocumentBtn {
         margin-right: 16px;
       }
@@ -202,4 +199,10 @@ ul.childList.hidden {
     'opsz' 24;
   color: #c1c1c1;
   cursor: pointer;
+}
+
+.search {
+  position: absolute;
+  padding: auto;
+  bottom: 805px;
 }
