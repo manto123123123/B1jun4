@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const id = pathname.split('/').pop();
       console.log('path : ', id);
 
-      postSaving(docId);
+      postSaving(id);
     } catch (error) {
       console.error('데이터 가져오기 실패:', error);
     }
