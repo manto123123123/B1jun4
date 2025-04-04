@@ -86,19 +86,6 @@ async function updateInputFields(id) {
   try {
     // 서버에서 id에 해당하는 데이터 가져오기
     const data = await get(id);
-    // const API_PUT = `https://kdt-api.fe.dev-cos.com/documents/${id}`;
-    // const response = await fetch(API_PUT, {
-    //   method: 'GET',
-    //   headers: {
-    //     'x-username': 'b1jun4',
-    //   },
-    // });
-
-    // if (!response.ok) {
-    //   throw new Error('Network response was not ok');
-    // }
-
-    // const data = await response.json();
     console.log('불러온 데이터:', data); // 디버깅용
 
     // input과 textarea 값 업데이트

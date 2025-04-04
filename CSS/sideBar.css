@@ -28,8 +28,10 @@
 }
 
 .flipped {
-  transform: scaleX(-1); /* 좌우 반전 */
-  transition: transform 0.3s ease-in-out; /* 부드러운 애니메이션 */
+  transform: scaleX(-1);
+  /* 좌우 반전 */
+  transition: transform 0.3s ease-in-out;
+  /* 부드러운 애니메이션 */
 }
 
 .sideBarHeader {
@@ -40,10 +42,12 @@
     padding: 0 20px 0 0;
     transition: font-size 0.1s ease-in-out;
   }
+
   .logo {
     margin: 5px 5px;
     cursor: pointer;
   }
+
   .toggleBtn {
     padding-left: 45px;
     transition: transform 0.1s ease-in-out;
@@ -60,12 +64,15 @@
       padding: 0;
       font-size: 12px;
     }
+
     .logo {
       width: 24px;
       height: 24px;
     }
+
     .toggleBtn {
       padding-left: 35px;
+
       img {
         width: 16px;
         height: 16px;
@@ -92,6 +99,7 @@
       background-color: var(--main-bg-color1);
     }
   }
+
   span {
     font-weight: 500;
 
@@ -101,7 +109,7 @@
         align-items: center;
         justify-content: center;
 
-        ul > li > a {
+        ul>li>a {
           margin-right: 45px;
         }
       }
@@ -164,6 +172,7 @@
         cursor: pointer;
       }
     }
+
     .depth1 {
       margin-left: 15px;
 
@@ -171,6 +180,7 @@
         margin-right: 16px;
       }
     }
+
     .depth2 {
       margin-left: 35px;
 
