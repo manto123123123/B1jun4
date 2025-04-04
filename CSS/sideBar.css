@@ -13,7 +13,6 @@
   transition: transform 0.1s ease-in-out;
   overflow: scroll;
 
-
   @media (max-width: 768px) {
     width: 200px;
   }
@@ -22,6 +21,8 @@
 /* 사이드바가 접힐 때 적용할 클래스 */
 .sideBar.hidden {
   transform: translateX(-80%);
+
+  
 }
 
 .documentContainer.hidden {
@@ -168,17 +169,31 @@
       }
     }
     .depth1 {
-      margin-left: 15px;
+      margin-left: 10px;
       
       .addDocumentBtn {
-        margin-right: 16px;
+        margin-right: 12px;
       }
     }
     .depth2 {
-      margin-left: 35px;
+      margin-left: 16px;
 
       .addDocumentBtn {
-        margin-right: 36px;
+        margin-right: 18px;
+      }
+    }
+    .depth3 {
+      margin-left: 22px;
+
+      .addDocumentBtn {
+        margin-right: 22px;
+      }
+    }
+    .depth4 {
+      margin-left: 28px;
+
+      .addDocumentBtn {
+        margin-right: 27px;
       }
     }
   }
