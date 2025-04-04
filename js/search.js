@@ -44,11 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const text = item.textContent.toLowerCase(); // 리스트 항목의 텍스트
         if (query === '') {
           // ✅ 검색어가 없으면 전체 항목 표시
-          item.style.display = 'list-item';
+          item.style.display = 'flex';
           matchCount++;
         } else if (text.includes(query)) {
           // ✅ 검색어가 포함된 항목만 보이기
-          item.style.display = 'list-item';
+          item.style.display = 'flex';
 
           matchCount++;
         } else {
