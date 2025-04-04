@@ -131,7 +131,7 @@ function showDocuments(doc, depth) {
       alert('하위 문서는 3개까지만 추가 가능해요🥲');
       return;
     }
-    
+
     await postDocuments(doc.id);
     openState[doc.id] = true;
 
