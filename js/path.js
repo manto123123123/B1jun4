@@ -33,7 +33,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const clickLi = (li) => {
     li.addEventListener('click', (e) => {
       e.preventDefault();
-      const li = e.currentTarget;
+      //   const li = e.currentTarget;
+      const li = e.target.closest('li[data-id]');
       const id = li.dataset.id;
       router(id);
     });
