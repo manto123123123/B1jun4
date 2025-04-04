@@ -60,11 +60,7 @@ function findDocuments(arr, depth, parentEl) {
 }
 
 function showDocuments(doc, depth) {
-  const totalTitle = doc.title;
-  const emoji = totalTitle.match(/\p{Emoji}/gu)
-    ? totalTitle.match(/\p{Emoji}/gu).join('')
-    : '';
-  const title = totalTitle.replace(/\p{Emoji}/gu, '').trim();
+  const title = doc.title;
   // document 요소
 
   const documentList = document.createElement('li');
@@ -85,12 +81,9 @@ function showDocuments(doc, depth) {
   }
   documentLink.appendChild(documentToggle);
 
-  // document 아이콘 [수정]
-
-  const iconImg = document.createElement('span');
-  iconImg.classList.add('iconImg');
-  iconImg.textContent = emoji || '📄'; // 이모지가 없을 경우 기본 아이콘
-  documentLink.appendChild(iconImg);
+  // document 아이콘
+  const documentIcon = document.createElement('img');
+  documentLink.appendChild(documentIcon);
 
   // document 제목
   const documentTitle = document.createTextNode(title);
@@ -123,11 +116,11 @@ function showDocuments(doc, depth) {
 
   // documentList 자식으로 파일 추가 버튼 추가
   const addDocumentBtn = document.createElement('button');
+  addDocumentBtn.classList.add('addDocumentBtn');
   const fileAdd = document.createElement('span');
   fileAdd.textContent = 'add';
   fileAdd.classList.add('material-symbols-outlined');
   addDocumentBtn.appendChild(fileAdd);
-  documentList.appendChild(addDocumentBtn);
 
   addDocumentBtn.addEventListener('click', async (event) => {
     event.preventDefault();

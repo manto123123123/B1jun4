@@ -76,9 +76,7 @@ async function handleLocation() {
     // path에 id 값이 없다면 글 작성 부분 초기화
     const titleInput = document.querySelector('.postingTitle');
     const contentTextarea = document.querySelector('.postingContent');
-    const icon = document.querySelector('.icon'); //  아이콘
 
-    icon.textContent = 'add_reaction';
     titleInput.value = '';
     contentTextarea.value = '';
   }
@@ -106,20 +104,8 @@ async function updateInputFields(id) {
     // input과 textarea 값 업데이트
     const titleInput = document.querySelector('.postingTitle');
     const contentTextarea = document.querySelector('.postingContent');
-    const icon = document.querySelector('.icon'); //  아이콘
-    const emojiInput = document.getElementById('emojiValue');
 
-    const totalTitle = data.title;
-    const emoji = totalTitle.match(/\p{Emoji}/gu)
-      ? totalTitle.match(/\p{Emoji}/gu).join('')
-      : '';
-    const title = totalTitle.replace(/\p{Emoji}/gu, '').trim();
-
-    console.log('내가 확인', totalTitle, emoji, title);
-
-    icon.textContent = emoji;
-    if (emojiInput) emojiInput.value = emoji;
-    if (titleInput) titleInput.value = title || ''; // 값이 없으면 빈 문자열
+    if (titleInput) titleInput.value = data.title || ''; // 값이 없으면 빈 문자열
     if (contentTextarea) contentTextarea.value = data.content || '';
   } catch (error) {
     console.error('데이터 불러오기 실패:', error);
