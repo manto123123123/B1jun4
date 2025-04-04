@@ -1,5 +1,6 @@
-import { postDocument } from './posting.js';
-//import fetchDocument from './delete.js';
+// import { postDocument } from './posting.js';
+import { getAll, post } from './api/index.js';
+
 let showAll = document.getElementById('showAll');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,26 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
   //   addDocument.addEventListener('click', postDocument)
   getDocuments();
 });
+
 export async function getDocuments() {
-  const API = 'https://kdt-api.fe.dev-cos.com/documents';
-  const USERNAME = 'b1jun4';
   try {
-    const response = await fetch(API, {
-      headers: {
-        'Content-Type': 'application/json',
-        'x-username': USERNAME,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok!');
-    }
-    const data = await response.json();
-    console.log('성공: ', data);
-
+    const data = await getAll();
     let depth = 0;
-    showAll.innerHTML = '';
+    showAll.innerHTML = ''; // 💡 중복 제거용 초기화
     findDocuments(data, depth);
+  } catch (error) {
+    console.error('실패: ', error);
+  }
+}
+
+async function postDocuments(parentId) {
+  try {
+    const data = await post(parentId);
   } catch (error) {
     console.error('실패: ', error);
   }
@@ -48,6 +44,7 @@ function findDocuments(arr, depth) {
 function showDocuments(doc, depth) {
   const title = doc.title;
   // document 요소
+
   const documentList = document.createElement('li');
   documentList.setAttribute('data-id', doc.id);
   const liClassName = `depth${depth}`;
@@ -80,15 +77,17 @@ function showDocuments(doc, depth) {
   fileAdd.classList.add('material-symbols-outlined');
   addDocumentBtn.appendChild(fileAdd);
 
-  addDocumentBtn.addEventListener('click', () => {
-    postDocument(doc.id);
+  addDocumentBtn.addEventListener('click', (event) => {
+    event.stopPropagation();
+    // postDocument(doc.id);
+    postDocuments(doc.id);
     getDocuments();
     //fetchDocument(doc.id);
   });
 
   documentList.appendChild(addDocumentBtn);
 
-  //console.log(documentList);
+  console.log(documentList);
 
   // ul 태그 자식으로 documentList 추가
   showAll.appendChild(documentList);

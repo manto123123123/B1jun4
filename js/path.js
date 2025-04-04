@@ -1,3 +1,5 @@
+import { get } from './api/index.js';
+
 window.addEventListener('DOMContentLoaded', () => {
   // DOM 실행 즉시 li를 가져오면 API 호출 후의 결과를 받아오지 못하므로 동적으로 감지 후 받아오기
   const observer = new MutationObserver((mutationsList) => {
@@ -101,19 +103,20 @@ async function handleLocation() {
 async function updateInputFields(id) {
   try {
     // 서버에서 id에 해당하는 데이터 가져오기
-    const API_PUT = `https://kdt-api.fe.dev-cos.com/documents/${id}`;
-    const response = await fetch(API_PUT, {
-      method: 'GET',
-      headers: {
-        'x-username': 'b1jun4',
-      },
-    });
+    const data = await get(id);
+    // const API_PUT = `https://kdt-api.fe.dev-cos.com/documents/${id}`;
+    // const response = await fetch(API_PUT, {
+    //   method: 'GET',
+    //   headers: {
+    //     'x-username': 'b1jun4',
+    //   },
+    // });
 
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
+    // if (!response.ok) {
+    //   throw new Error('Network response was not ok');
+    // }
 
-    const data = await response.json();
+    // const data = await response.json();
     console.log('불러온 데이터:', data); // 디버깅용
 
     // input과 textarea 값 업데이트
