@@ -2,6 +2,7 @@
 import { getAll, post } from './api/index.js';
 
 let showAll = document.getElementById('showAll');
+const rootAdd = document.getElementById('rootAdd');
 
 document.addEventListener('DOMContentLoaded', () => {
   // posting.html에서 전체 보기 ul 태그의 id를 showAll로 설정
@@ -10,6 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
   //   const addDocument = document.getElementById('addDocument')
   //   addDocument.addEventListener('click', postDocument)
   getDocuments();
+
+  rootAdd.addEventListener('click', (event) => {
+    event.preventDefault();
+    postDocuments(null);
+  });
 });
 
 export async function getDocuments() {
@@ -26,6 +32,7 @@ export async function getDocuments() {
 async function postDocuments(parentId) {
   try {
     const data = await post(parentId);
+    getDocuments();
   } catch (error) {
     console.error('실패: ', error);
   }
@@ -86,7 +93,6 @@ function showDocuments(doc, depth) {
       return;
     }
     postDocuments(doc.id);
-    getDocuments();
     //fetchDocument(doc.id);
   });
 
