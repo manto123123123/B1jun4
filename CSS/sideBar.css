@@ -113,7 +113,7 @@
       width: 100%;
       line-height: 2.5em;
       background-color: #dfdfdf;
-      display: flex;
+      /* display: flex; */
       align-items: center;
       padding: 0 12px;
       justify-content: space-between;
@@ -181,7 +181,12 @@
   }
 }
 
-.down {
+ul.childList.hidden {
+  display: none;
+}
+
+
+.arrow.down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
