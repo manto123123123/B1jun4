@@ -1,8 +1,15 @@
 @charset "utf-8";
-:root{
-    --main-bg-color1: #F4F9FF;
-    --main-bg-color2: #E8F3FF;
-    --main-bg-color3: #CFDCF8;
-    --main-point-color1: #1B63EA;
-    --main-point-color2: #1049A5;
+
+:root {
+  --main-bg-color1: #f4f9ff;
+  --main-bg-color2: #e8f3ff;
+  --main-bg-color3: #cfdcf8;
+  --main-point-color1: #1b63ea;
+  --main-point-color2: #1049a5;
+  --common1: #000;
+  --common2: #fff;
+
+  --main-h1-font-size: 32px;
+  --main-content-font-size: 16px;
+  --sidebar-font-size: 13px;
 }

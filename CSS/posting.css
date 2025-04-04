@@ -1,0 +1,91 @@
+@import url(./root.css);
+@import url(./reset.css);
+
+.postingSection {
+  position: relative;
+  width: calc(100% - 255px);
+  float: right;
+  margin-top: 50px;
+
+  .emojiBtn {
+    display: flex;
+
+    .material-symbols-outlined {
+      padding-left: 30px;
+      cursor: pointer;
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: calc(100% - 200px);
+  }
+}
+
+.postingTitle {
+  display: flex;
+  height: 2.2em;
+  width: 90%;
+  font-size: var(--main-h1-font-size);
+  font-weight: 500;
+  margin-left: 30px;
+}
+
+hr {
+  display: flex;
+  max-height: 1px;
+  opacity: 0.2;
+  width: 95%;
+}
+
+.postingContent {
+  margin-left: 30px;
+  height: 70vh;
+  width: 95%;
+  resize: none;
+  line-height: 1.5;
+  font-size: var(--main-content-font-size);
+
+  @media (max-width: 768px) {
+    width: 85%;
+  }
+}
+
+.postingContent::placeholder {
+  font-size: var(--main-content-font-size);
+}
+
+*::placeholder {
+  color: #c1c1c1;
+}
+
+*:focus {
+  outline: none;
+  border: none;
+}
+
+.deleteBtnContainer {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.deleteBtn {
+  width: 80px;
+  height: 30px;
+  background-color: var(--main-bg-color2);
+  color: var(--main-point-color2);
+  cursor: pointer;
+  border-radius: 8%;
+  transition: all 0.1s linear;
+
+}
+
+.deleteBtn:hover {
+  background-color: var(--main-bg-color3);
+  color: var(--main-point-color2);
+}

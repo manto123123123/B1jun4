@@ -1,0 +1,257 @@
+@import url(./root.css);
+@import url(./reset.css);
+
+.sideBar {
+  background-color: var(--main-bg-color1);
+
+  width: 255px;
+  height: 100%;
+  display: block;
+  float: left;
+  position: relative;
+
+  transition: transform 0.1s ease-in-out;
+  overflow: scroll;
+
+  .search{
+    width: 80%;
+    margin-left: 20px;
+    position: absolute;
+    padding: auto;
+    top: 40px;
+    border-radius: 3px;
+    
+    input {
+      top: 5px;
+      padding: 10px 60px 10px 10px;
+    }
+
+    button {
+      position: absolute;
+      top: 4px;
+      right: 10px;
+      background-color: var(--common2);
+
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 200px;
+    background-color: var(--common2);
+  }
+}
+
+/* 사이드바가 접힐 때 적용할 클래스 */
+.sideBar.hidden {
+  transform: translateX(-80%);
+
+  .search {
+    display: none;
+  }
+}
+
+.documentContainer.hidden {
+  display: block;
+}
+
+.flipped {
+  transform: scaleX(-1);
+  /* 좌우 반전 */
+  transition: transform 0.3s ease-in-out;
+  /* 부드러운 애니메이션 */
+}
+
+.sideBarHeader {
+  position: absolute;
+
+
+
+  .workspace {
+    font-size: 14px;
+    padding: 0 20px 0 0;
+    transition: font-size 0.1s ease-in-out;
+  }
+
+  .logo {
+    margin: 5px 5px;
+    cursor: pointer;
+  }
+
+  .toggleBtn {
+    padding-left: 45px;
+    transition: transform 0.1s ease-in-out;
+    cursor: pointer;
+
+    img {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .workspace {
+      padding: 0;
+      font-size: 12px;
+    }
+
+    .logo {
+      width: 24px;
+      height: 24px;
+    }
+
+    .toggleBtn {
+      padding-left: 35px;
+
+      img {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+.documentContainer {
+  position: absolute;
+  display: block;
+  top: 165px;
+  height: auto;
+  width: 100%;
+  line-height: 2.4em;
+  font-size: var(--sidebar-font-size);
+
+  div {
+    padding-left: 10px;
+    transition: font-size 0.1s ease-in-out;
+
+    button {
+      margin-left: 132px;
+      background-color: var(--main-bg-color1);
+    }
+  }
+
+  span {
+    font-weight: 500;
+
+    @media (max-width: 768px) {
+      .documentContainer {
+        font-size: 12px;
+        align-items: center;
+        justify-content: center;
+
+        ul>li>a {
+          margin-right: 45px;
+        }
+      }
+    }
+  }
+
+  #showAll {
+    li {
+      width: 100%;
+      line-height: 2.5em;
+      background-color: #dfdfdf;
+      /* display: flex; */
+      align-items: center;
+      padding: 0 12px;
+      justify-content: space-between;
+      background-color: var(--main-bg-color1);
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      &:hover .arrow {
+        background-color: var(--main-bg-color3);
+        text-decoration: none;
+      }
+
+      a {
+        width: 85%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .arrow {
+        border: solid #c1c1c1;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        margin-right: 10px;
+        align-items: center;
+        cursor: pointer;
+        background-color: var(--main-bg-color1);
+      }
+
+      .documentIcon {
+        align-items: center;
+        justify-content: center;
+        padding-top: 6px;
+      }
+
+      .right {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+      }
+
+      button {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+    }
+
+    .depth1 {
+      margin-left: 15px;
+
+      .addDocumentBtn {
+        margin-right: 12px;
+      }
+    }
+
+    .depth2 {
+      margin-left: 16px;
+
+      .addDocumentBtn {
+        margin-right: 18px;
+      }
+    }
+    .depth3 {
+      margin-left: 22px;
+
+      .addDocumentBtn {
+        margin-right: 22px;
+      }
+    }
+    .depth4 {
+      margin-left: 28px;
+
+      .addDocumentBtn {
+        margin-right: 27px;
+      }
+    }
+  }
+}
+
+ul.childList.hidden {
+  display: none;
+}
+
+
+.arrow.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  color: #c1c1c1;
+  cursor: pointer;
+}
+
