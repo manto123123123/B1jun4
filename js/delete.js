@@ -149,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // 수정: 삭제된 LI를 부모에서 제거
         deletedLi.parentElement.removeChild(deletedLi);
       }
-
       //  삭제한 문서가 현재 선택된 문서라면 UI 초기화
       icon.textContent = 'add_reaction';
       postingTitle.value = '';
