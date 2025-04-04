@@ -7,7 +7,6 @@ const rootAdd = document.getElementById('rootAdd');
 const openState = {};
 
 document.addEventListener('DOMContentLoaded', () => {
-
   getDocuments();
 
   rootAdd.addEventListener('click', (event) => {
