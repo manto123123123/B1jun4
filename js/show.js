@@ -98,7 +98,7 @@ function showDocuments(doc, depth) {
 
   documentList.appendChild(addDocumentBtn);
 
-  console.log(documentList);
+  //console.log(documentList);
 
   // ul 태그 자식으로 documentList 추가
   showAll.appendChild(documentList);

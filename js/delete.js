@@ -1,4 +1,3 @@
-//import postSaving from './postSave.js';
 import { getDocuments } from './show.js';
 import { get, deleteDoc, put } from './api/index.js';
 
@@ -9,6 +8,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const showAll = document.getElementById('showAll'); // 문서 목록 ul
 
   let currentDocId = null; // 현재 선택된 문서 ID 저장
+  let isSaving = false;
+
+  // title이나 content에 키보드로 입력할 때마다 PUT 요청
+  function saveEvent(type) {
+    return async () => {
+      const titleText = postingTitle.value;
+      const titleContent = postingContent.value;
+
+      const pathname = window.location.pathname;
+      const id = pathname.split('/').pop();
+
+      try {
+        if (type === 'title') {
+          console.log(`${id}번 제목 변경`);
+          await put(id, 'title', titleText);
+          getDocuments(); // 제목 변경 시만 사이드바 갱신
+        } else if (type === 'content') {
+          console.log(`${id}번 내용 변경`);
+          await put(id, 'content', titleContent);
+        }
+        isSaving = false;
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  }
+
+  const titleHandler = saveEvent('title');
+  const contentHandler = saveEvent('content');
 
   //데이터 가져오는 함수
   async function fetchDocument(docId) {
@@ -22,12 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       currentDocId = docId; // 현재 선택된 문서 ID 업데이트
       console.log('docId : ', docId);
 
-      const pathname = window.location.pathname;
-      console.log(pathname);
-      const id = pathname.split('/').pop();
-      console.log('path : ', id);
-
-      postSaving(id);
+      postSaving();
     } catch (error) {
       console.error('데이터 가져오기 실패:', error);
     }
@@ -54,69 +77,32 @@ document.addEventListener('DOMContentLoaded', () => {
       postingTitle.value = '';
       postingContent.textContent = '';
       currentDocId = null; // 삭제 후 선택된 문서 ID 초기화
+
+      window.history.pushState({}, '', '/html/posting.html'); // ID 없는 상태로 변경
+
+      // path에 id 값이 없다면 글 작성 부분 초기화
+      const titleInput = document.querySelector('.postingTitle');
+      const contentTextarea = document.querySelector('.postingContent');
+
+      titleInput.value = '';
+      contentTextarea.value = '';
     } catch (error) {
       console.error('문서 삭제 실패:', error);
     }
   }
 
   // 매개변수 id
-  const postSaving = (id) => {
+  const postSaving = () => {
+    if (isSaving) return;
+    isSaving = true;
     const title = document.querySelector('.postingTitle');
     const content = document.querySelector('.postingContent');
 
-    /*
-    const posting = [title, content];
-    posting.forEach((v) => {
-      v.addEventListener('keyup', async () => {
-        const titleText = title.value;
-        const titleContent = content.value;
+    title.removeEventListener('keyup', titleHandler);
+    content.removeEventListener('keyup', contentHandler);
 
-        console.log('제목 : ', titleText);
-        console.log('내용 : ', titleContent);
-
-        // const pathname = window.location.pathname;
-        // console.log(pathname);
-        // const id = pathname.split('/').pop();
-        // console.log('path : ', id);
-
-        try {
-          console.log(`${id}번으로 PUT 날라간당`);
-          await put(id, titleText, titleContent);
-          getDocuments();
-        } catch (error) {
-          console.error(error);
-        }
-      });
-    });
-*/
-    // const titleText = title.value;
-    // const pathname = window.location.pathname;
-    // const id = pathname.split('/').pop();
-    // 제목 변경시 사이드바 리렌더링
-    title.addEventListener('keyup', async () => {
-      const titleText = title.value;
-      // const pathname = window.location.pathname;
-
-      try {
-        console.log(`${id}번 제목 변경`);
-        await put(id, 'title', titleText);
-        getDocuments();
-      } catch (error) {
-        console.error(error);
-      }
-    });
-
-    // 내용 변경. 사이드바 리렌더링 하지 않음
-    content.addEventListener('keyup', async () => {
-      const titleContent = content.value;
-
-      try {
-        console.log(`${id}번 내용 변경`);
-        await put(id, 'content', titleContent);
-      } catch (error) {
-        console.error(error);
-      }
-    });
+    title.addEventListener('keyup', titleHandler);
+    content.addEventListener('keyup', contentHandler);
   };
 
   // 문서 목록 클릭 이벤트 추가
@@ -133,5 +119,3 @@ document.addEventListener('DOMContentLoaded', () => {
   // 삭제 버튼 클릭 이벤트 추가
   deleteBtn.addEventListener('click', deleteDocument);
 });
-
-//export default fetchDocument;
