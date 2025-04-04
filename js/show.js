@@ -7,11 +7,7 @@ const rootAdd = document.getElementById('rootAdd');
 const openState = {};
 
 document.addEventListener('DOMContentLoaded', () => {
-  // posting.html에서 전체 보기 ul 태그의 id를 showAll로 설정
 
-  // addDocument는 파일 추가 button 태그 id
-  //   const addDocument = document.getElementById('addDocument')
-  //   addDocument.addEventListener('click', postDocument)
   getDocuments();
 
   rootAdd.addEventListener('click', (event) => {
@@ -33,7 +29,7 @@ export async function getDocuments() {
 
 async function postDocuments(parentId) {
   try {
-    const data = await post(parentId);
+    await post(parentId);
     getDocuments();
   } catch (error) {
     console.error('실패: ', error);
@@ -88,7 +84,6 @@ function showDocuments(doc, depth) {
   // document 제목
   const documentTitle = document.createTextNode(title);
   documentLink.appendChild(documentTitle);
-  // documentLink.textContent = title
 
   // documentList 자식으로 documentLink 추가
   documentList.appendChild(documentLink);
