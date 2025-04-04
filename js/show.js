@@ -123,8 +123,6 @@ function showDocuments(doc, depth) {
 
   // documentList 자식으로 파일 추가 버튼 추가
   const addDocumentBtn = document.createElement('button');
-  const colorDiv = document.createElement('div');
-  addDocumentBtn.classList.add('addDocumentBtn');
   const fileAdd = document.createElement('span');
   fileAdd.textContent = 'add';
   fileAdd.classList.add('material-symbols-outlined');
@@ -146,11 +144,8 @@ function showDocuments(doc, depth) {
 
     await getDocuments();
   });
-  colorDiv.appendChild(documentLink);
-  colorDiv.appendChild(addDocumentBtn);
-  colorDiv.classList.add('colorDiv');
 
-  documentList.appendChild(colorDiv);
+  documentList.appendChild(addDocumentBtn);
 
   //console.log(documentList);
 
