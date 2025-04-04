@@ -1,8 +1,8 @@
 import { DEV_API, DEV_USERNAME } from './config.js';
 
-export async function deleteDoc() {
+export async function deleteDoc(id) {
   try {
-    const response = await fetch(DEV_API, {
+    const response = await fetch(`${DEV_API}/${id}`, {
       method: 'DELETE', // POST
       headers: {
         'x-username': DEV_USERNAME,

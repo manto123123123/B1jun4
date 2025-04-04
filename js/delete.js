@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     try {
-      await deleteDoc();
+      await deleteDoc(currentDocId);
       console.log('문서 삭제 성공:', currentDocId);
       alert('문서가 삭제되었습니다.');
 
