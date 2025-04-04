@@ -10,6 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             // li 내부의 addDocumentBtn도 추가되었는지 확인
             const addButton = node.querySelector('button');
+            //console.log(addButton);
             if (addButton) {
               clickAddBtn(addButton);
             }
