@@ -131,9 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 삭제 버튼 클릭 이벤트 추가
-  deleteBtn.addEventListener('click', () => {
-    deleteDocument();
-  });
+  deleteBtn.addEventListener('click', deleteDocument);
 });
 
 //export default fetchDocument;
