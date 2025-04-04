@@ -5,6 +5,8 @@ import { get, deleteDoc, put } from './api/index.js';
 document.addEventListener('DOMContentLoaded', () => {
   const postingTitle = document.querySelector('.postingTitle');
   const postingContent = document.querySelector('.postingContent');
+  const icon = document.querySelector('.icon'); //  아이콘
+  const emojiBtn = document.getElementById('emojiBtn'); // 아이콘 영역
   const deleteBtn = document.querySelector('.deleteBtn');
   const showAll = document.getElementById('showAll'); // 문서 목록 ul
 
@@ -15,9 +17,19 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const data = await get(docId);
       console.log('받아온 데이터:', data); // 디버깅용 콘솔 출력
+      const totalTitle = data.title;
+      const title = totalTitle.replace(/\p{Emoji}/gu, '').trim();
+      const emoji = totalTitle.match(/\p{Emoji}/gu)
+        ? totalTitle.match(/\p{Emoji}/gu).join('')
+        : '';
 
-      postingTitle.value = data.title || '제목 없음';
+      icon.textContent = emoji || 'add_reaction';
+      postingTitle.value = title || '제목 없음';
       postingContent.textContent = data.content || '내용 없음';
+
+      emojiBtn.innerHTML = ''; // 기존 이모지 초기화
+      emojiBtn.appendChild(icon);
+      console.log('확인 : ', icon, icon.textContent);
 
       currentDocId = docId; // 현재 선택된 문서 ID 업데이트
       console.log('docId : ', docId);
@@ -51,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       //  삭제한 문서가 현재 선택된 문서라면 UI 초기화
+      icon.textContent = 'add_reaction';
       postingTitle.value = '';
       postingContent.textContent = '';
       currentDocId = null; // 삭제 후 선택된 문서 ID 초기화
@@ -63,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const postSaving = (id) => {
     const title = document.querySelector('.postingTitle');
     const content = document.querySelector('.postingContent');
+    const icon = document.querySelector('.icon'); //  아이콘
 
     /*
     const posting = [title, content];
@@ -92,9 +106,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // const titleText = title.value;
     // const pathname = window.location.pathname;
     // const id = pathname.split('/').pop();
+    const isEmoji = (text) => /^\p{Emoji}+$/u.test(text);
+    // 이모지 변경시 사이드바 리렌더링
+    const observer = new MutationObserver(async () => {
+      const emoji = isEmoji(icon.textContent.trim())
+        ? icon.textContent.trim()
+        : '';
+      const newTitle = `${title.value} ${emoji}`;
+      try {
+        console.log(`${id}번 내용 변경`);
+        await put(id, 'title', newTitle);
+      } catch (error) {
+        console.error(error);
+      }
+    });
+
+    observer.observe(icon, {
+      childList: true,
+      subtree: true,
+      characterData: true,
+    });
+
     // 제목 변경시 사이드바 리렌더링
     title.addEventListener('keyup', async () => {
-      const titleText = title.value;
+      const iconText = icon.textContent.trim(); // 이모지 값 추출
+      const iconEmoji = isEmoji(iconText) ? iconText : '';
+      const titleText = title.value + ' ' + iconEmoji; // 이모지 붙이기
       // const pathname = window.location.pathname;
 
       try {
@@ -117,6 +154,37 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error(error);
       }
     });
+
+    // 아이콘 요소와 이모지가 담긴 목록
+    const emojiBtn = document.getElementById('emojiBtn');
+    const picker = new EmojiButton({ theme: 'auto', position: 'bottom-start' });
+
+    // 아이콘 요소 클릭시, 이모지 목록 펼침
+    emojiBtn.addEventListener('click', async () => {
+      picker.togglePicker(emojiBtn);
+    });
+
+    // 이모지 목록에서 특정 값을 선택시, 이모지 확인됨
+    picker.on('emoji', async (emoji) => {
+      const iconSpan = document.createElement('span');
+      iconSpan.className = 'material-symbols-outlined icon';
+      iconSpan.id = 'icon';
+      iconSpan.textContent = emoji;
+      emojiBtn.innerHTML = ''; // 기존 이모지 초기화
+      emojiBtn.appendChild(iconSpan);
+
+      if (!currentDocId) {
+        console.log('현재 문서 ID를 찾을 수 없습니다.');
+        return;
+      }
+      const titleWithEmoji = title.value + ' ' + emoji;
+      try {
+        await put(currentDocId, 'title', titleWithEmoji);
+        getDocuments();
+      } catch (error) {
+        console.error('이모지 변경 저장 실패:', error);
+      }
+    });
   };
 
   // 문서 목록 클릭 이벤트 추가
@@ -133,5 +201,3 @@ document.addEventListener('DOMContentLoaded', () => {
   // 삭제 버튼 클릭 이벤트 추가
   deleteBtn.addEventListener('click', deleteDocument);
 });
-
-//export default fetchDocument;
