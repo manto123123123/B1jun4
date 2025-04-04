@@ -133,12 +133,22 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('문서 삭제 성공:', currentDocId);
       alert('문서가 삭제되었습니다.');
 
-      //  삭제된 문서를 화면에서 즉시 제거
+      // 수정: 삭제된 문서를 화면에서 즉시 제거 및 자식 문서 재배치
       const deletedLi = document.querySelector(`li[data-id="${currentDocId}"]`);
       if (deletedLi) {
-        showAll.removeChild(deletedLi); // 목록에서 제거
+        // 수정: 만약 삭제된 LI 안에 자식 UL이 있다면, 그 UL의 모든 LI를 최상위 UL(#showAll)로 이동
+        const childUl = deletedLi.querySelector('ul.childList');
+        if (childUl) {
+          while (childUl.firstElementChild) {
+            const childLi = childUl.firstElementChild;
+            // 수정: 이동 전에 depth 클래스를 새롭게 갱신 (최상위 UL 밑이므로 depth 0부터 시작)
+            updateDepths(childLi, 0); // 새로 작성한 재귀 함수
+            showAll.appendChild(childLi);
+          }
+        }
+        // 수정: 삭제된 LI를 부모에서 제거
+        deletedLi.parentElement.removeChild(deletedLi);
       }
-
       //  삭제한 문서가 현재 선택된 문서라면 UI 초기화
       icon.textContent = 'add_reaction';
       postingTitle.value = '';
@@ -157,6 +167,28 @@ document.addEventListener('DOMContentLoaded', () => {
       contentTextarea.value = '';
     } catch (error) {
       console.error('문서 삭제 실패:', error);
+    }
+  }
+
+  // 재귀 함수: li 요소와 그 자식들의 depth 클래스를 재설정 (newDepth는 해당 li의 새 depth)
+  function updateDepths(li, newDepth) {
+    // 수정: 기존 depth 클래스 제거
+    const classesToRemove = [];
+    li.classList.forEach((cls) => {
+      if (/^depth\d+$/.test(cls)) {
+        classesToRemove.push(cls);
+      }
+    });
+    classesToRemove.forEach((cls) => li.classList.remove(cls));
+    // 새 depth 클래스 추가
+    li.classList.add(`depth${newDepth}`);
+
+    // 자식 li들에 대해서 재귀적으로 처리 (바로 아래 ul.childList 안의 li)
+    const childUl = li.querySelector(':scope > ul.childList');
+    if (childUl) {
+      Array.from(childUl.children).forEach((childLi) => {
+        updateDepths(childLi, newDepth + 1);
+      });
     }
   }
 
