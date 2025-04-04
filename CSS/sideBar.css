@@ -13,14 +13,41 @@
   transition: transform 0.1s ease-in-out;
   overflow: scroll;
 
+  .search{
+    width: 80%;
+    margin-left: 20px;
+    position: absolute;
+    padding: auto;
+    top: 40px;
+    border-radius: 3px;
+    
+    input {
+      top: 5px;
+      padding: 10px 60px 10px 10px;
+    }
+
+    button {
+      position: absolute;
+      top: 4px;
+      right: 10px;
+      background-color: var(--common2);
+
+    }
+  }
+
   @media (max-width: 768px) {
     width: 200px;
+    background-color: var(--common2);
   }
 }
 
 /* 사이드바가 접힐 때 적용할 클래스 */
 .sideBar.hidden {
   transform: translateX(-80%);
+
+  .search {
+    display: none;
+  }
 }
 
 .documentContainer.hidden {
@@ -36,6 +63,8 @@
 
 .sideBarHeader {
   position: absolute;
+
+
 
   .workspace {
     font-size: 14px;
@@ -84,7 +113,7 @@
 .documentContainer {
   position: absolute;
   display: block;
-  top: 65px;
+  top: 165px;
   height: auto;
   width: 100%;
   line-height: 2.4em;
@@ -127,12 +156,13 @@
       justify-content: space-between;
       background-color: var(--main-bg-color1);
 
-      &:hover {
-        background-color: var(--main-bg-color3);
+      a:hover {
+        text-decoration: underline;
       }
 
       &:hover .arrow {
         background-color: var(--main-bg-color3);
+        text-decoration: none;
       }
 
       a {
@@ -177,15 +207,29 @@
       margin-left: 15px;
 
       .addDocumentBtn {
-        margin-right: 16px;
+        margin-right: 12px;
       }
     }
 
     .depth2 {
-      margin-left: 35px;
+      margin-left: 16px;
 
       .addDocumentBtn {
-        margin-right: 36px;
+        margin-right: 18px;
+      }
+    }
+    .depth3 {
+      margin-left: 22px;
+
+      .addDocumentBtn {
+        margin-right: 22px;
+      }
+    }
+    .depth4 {
+      margin-left: 28px;
+
+      .addDocumentBtn {
+        margin-right: 27px;
       }
     }
   }
@@ -211,8 +255,3 @@ ul.childList.hidden {
   cursor: pointer;
 }
 
-.search {
-  position: absolute;
-  padding: auto;
-  bottom: 805px;
-}
