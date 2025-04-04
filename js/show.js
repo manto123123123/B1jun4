@@ -80,6 +80,11 @@ function showDocuments(doc, depth) {
   addDocumentBtn.addEventListener('click', (event) => {
     event.stopPropagation();
     // postDocument(doc.id);
+    // console.log(depth);
+    if (depth >= 3) {
+      alert('하위 문서는 3개까지만 추가 가능해요🥲');
+      return;
+    }
     postDocuments(doc.id);
     getDocuments();
     //fetchDocument(doc.id);
