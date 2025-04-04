@@ -195,3 +195,9 @@
   color: #c1c1c1;
   cursor: pointer;
 }
+
+.search {
+  position: absolute;
+  padding: auto;
+  bottom: 805px;
+}

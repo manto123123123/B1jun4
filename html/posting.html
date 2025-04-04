@@ -13,10 +13,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>
     <script type="module" src="../js/icon.js"></script>
     <script type="module" src="../js/posting.js"></script>
-    <script type="module" src="../js/postSave.js"></script>
     <script type="module" src="../js/show.js"></script>
     <script type="module" src="../js/path.js"></script>
-    <script src="../js/slideBtn.js"></script>
+    <script type="module" src="../js/slideBtn.js"></script>
+    <script src="../js/search.js"></script>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add"
@@ -39,11 +39,17 @@
           <img src="../image/sideBar.svg" alt="사이드바 열기/닫기" />
         </span>
       </header>
+
+      <form action="/search" method="GET" class="search">
+        <input
+          type="text"
+          name="query"
+          placeholder="검색어를 입력해주세요!"
+          required
+        />
+        <button type="submit">🔍</button>
+      </form>
       <!-- 
-        <form action="/search" method="GET">
-            <input type="text" name="query" placeholder="검색어를 입력해주세요!" required />
-            <button type="submit">🔍</button>
-        </form>
         <nav class="bookMark">
             <span class="BookMarkHeader on"></span> 
             <span>즐겨찾기 폴더 및 파일 <img src="../image/flowbite_sort-outline.svg" /></span>
@@ -67,7 +73,7 @@
         <div>
           전체 파일 보기
           <button>
-            <span class="material-symbols-outlined">add</span>
+            <span id="rootAdd" class="material-symbols-outlined">add</span>
           </button>
           <!-- 
                 <form action="">

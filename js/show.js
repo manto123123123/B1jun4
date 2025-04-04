@@ -2,6 +2,7 @@
 import { getAll, post } from './api/index.js';
 
 let showAll = document.getElementById('showAll');
+const rootAdd = document.getElementById('rootAdd');
 
 document.addEventListener('DOMContentLoaded', () => {
   // posting.html에서 전체 보기 ul 태그의 id를 showAll로 설정
@@ -10,6 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
   //   const addDocument = document.getElementById('addDocument')
   //   addDocument.addEventListener('click', postDocument)
   getDocuments();
+
+  rootAdd.addEventListener('click', (event) => {
+    event.preventDefault();
+    postDocuments(null);
+  });
 });
 
 export async function getDocuments() {
@@ -27,6 +33,7 @@ export async function getDocuments() {
 async function postDocuments(parentId) {
   try {
     const data = await post(parentId);
+    getDocuments();
   } catch (error) {
     console.error('실패: ', error);
   }
@@ -88,12 +95,18 @@ function showDocuments(doc, depth) {
   addDocumentBtn.addEventListener('click', (event) => {
     event.stopPropagation();
     // postDocument(doc.id);
+    // console.log(depth);
+    if (depth >= 3) {
+      alert('하위 문서는 3개까지만 추가 가능해요🥲');
+      return;
+    }
     postDocuments(doc.id);
-    getDocuments();
     //fetchDocument(doc.id);
   });
 
-  console.log(documentList);
+  documentList.appendChild(addDocumentBtn);
+
+  //console.log(documentList);
 
   // ul 태그 자식으로 documentList 추가
   showAll.appendChild(documentList);

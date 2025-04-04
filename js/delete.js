@@ -1,4 +1,3 @@
-//import postSaving from './postSave.js';
 import { getDocuments } from './show.js';
 import { get, deleteDoc, put } from './api/index.js';
 
@@ -6,11 +5,94 @@ document.addEventListener('DOMContentLoaded', () => {
   const postingTitle = document.querySelector('.postingTitle');
   const postingContent = document.querySelector('.postingContent');
   const icon = document.querySelector('.icon'); //  아이콘
-  const emojiBtn = document.getElementById('emojiBtn'); // 아이콘 영역
   const deleteBtn = document.querySelector('.deleteBtn');
   const showAll = document.getElementById('showAll'); // 문서 목록 ul
 
+  // 아이콘 요소와 이모지가 담긴 목록
+  const emojiBtn = document.getElementById('emojiBtn');
+  const picker = new EmojiButton({ theme: 'auto', position: 'bottom-start' });
+  // 아이콘 요소 클릭시, 이모지 목록 펼침
+  emojiBtn.addEventListener('click', async () => {
+    picker.togglePicker(emojiBtn);
+  });
+  // 이모지 목록에서 특정 값을 선택시, 이모지 확인됨
+  picker.on('emoji', async (emoji) => {
+    const iconSpan = document.createElement('span');
+    iconSpan.className = 'material-symbols-outlined icon';
+    iconSpan.id = 'icon';
+    iconSpan.textContent = emoji;
+    emojiBtn.innerHTML = ''; // 기존 이모지 초기화
+    emojiBtn.appendChild(iconSpan);
+
+    if (!currentDocId) {
+      console.log('현재 문서 ID를 찾을 수 없습니다.');
+      return;
+    }
+    const titleWithEmoji = `${postingTitle.value}} ${emoji}`;
+    try {
+      await put(currentDocId, 'title', titleWithEmoji);
+      getDocuments();
+    } catch (error) {
+      console.error('이모지 변경 저장 실패:', error);
+    }
+  });
+
   let currentDocId = null; // 현재 선택된 문서 ID 저장
+  let isSaving = false;
+
+  const isEmoji = (text) => /^\p{Emoji}+$/u.test(text);
+  // title이나 content에 키보드로 입력할 때마다 PUT 요청
+  function saveEvent(type) {
+    return async () => {
+      const emoji = isEmoji(icon.textContent.trim())
+        ? icon.textContent.trim()
+        : '';
+      const titleText = `${postingTitle.value} ${emoji}`;
+      const titleContent = postingContent.value;
+
+      const pathname = window.location.pathname;
+      const id = pathname.split('/').pop();
+
+      function obj() {
+        // 이모지 변경 저장
+        const observer = new MutationObserver(async () => {
+          const emoji = isEmoji(icon.textContent.trim())
+            ? icon.textContent.trim()
+            : '';
+          const newTitle = `${postingTitle.value}} ${emoji}`;
+          try {
+            console.log(`${id}번 이모지 변경`);
+            await put(id, 'title', newTitle);
+          } catch (error) {
+            console.error(error);
+          }
+        });
+        observer.observe(icon, {
+          childList: true,
+          subtree: true,
+          characterData: true,
+        });
+      }
+      obj();
+
+      try {
+        if (type === 'title') {
+          console.log(`${id}번 제목 변경`);
+          await put(id, 'title', titleText);
+          getDocuments(); // 제목 변경 시만 사이드바 갱신
+        } else if (type === 'content') {
+          console.log(`${id}번 내용 변경`);
+          await put(id, 'content', titleContent);
+        }
+        isSaving = false;
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  }
+
+  const titleHandler = saveEvent('title');
+  const contentHandler = saveEvent('content');
 
   //데이터 가져오는 함수
   async function fetchDocument(docId) {
@@ -34,12 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
       currentDocId = docId; // 현재 선택된 문서 ID 업데이트
       console.log('docId : ', docId);
 
-      const pathname = window.location.pathname;
-      console.log(pathname);
-      const id = pathname.split('/').pop();
-      console.log('path : ', id);
-
-      postSaving(docId);
+      postSaving();
     } catch (error) {
       console.error('데이터 가져오기 실패:', error);
     }
@@ -67,124 +144,33 @@ document.addEventListener('DOMContentLoaded', () => {
       postingTitle.value = '';
       postingContent.textContent = '';
       currentDocId = null; // 삭제 후 선택된 문서 ID 초기화
+
+      window.history.pushState({}, '', '/html/posting.html'); // ID 없는 상태로 변경
+
+      // path에 id 값이 없다면 글 작성 부분 초기화
+      const emptyIcon = document.querySelector('.icon'); //  아이콘
+      const titleInput = document.querySelector('.postingTitle');
+      const contentTextarea = document.querySelector('.postingContent');
+
+      emptyIcon.textContent = 'add_reaction';
+      titleInput.value = '';
+      contentTextarea.value = '';
     } catch (error) {
       console.error('문서 삭제 실패:', error);
     }
   }
 
   // 매개변수 id
-  const postSaving = (id) => {
+  const postSaving = () => {
+    if (isSaving) return;
+    isSaving = true;
     const title = document.querySelector('.postingTitle');
     const content = document.querySelector('.postingContent');
-    const icon = document.querySelector('.icon'); //  아이콘
+    title.removeEventListener('keyup', titleHandler);
+    content.removeEventListener('keyup', contentHandler);
 
-    /*
-    const posting = [title, content];
-    posting.forEach((v) => {
-      v.addEventListener('keyup', async () => {
-        const titleText = title.value;
-        const titleContent = content.value;
-
-        console.log('제목 : ', titleText);
-        console.log('내용 : ', titleContent);
-
-        // const pathname = window.location.pathname;
-        // console.log(pathname);
-        // const id = pathname.split('/').pop();
-        // console.log('path : ', id);
-
-        try {
-          console.log(`${id}번으로 PUT 날라간당`);
-          await put(id, titleText, titleContent);
-          getDocuments();
-        } catch (error) {
-          console.error(error);
-        }
-      });
-    });
-*/
-    // const titleText = title.value;
-    // const pathname = window.location.pathname;
-    // const id = pathname.split('/').pop();
-    const isEmoji = (text) => /^\p{Emoji}+$/u.test(text);
-    // 이모지 변경시 사이드바 리렌더링
-    const observer = new MutationObserver(async () => {
-      const emoji = isEmoji(icon.textContent.trim())
-        ? icon.textContent.trim()
-        : '';
-      const newTitle = `${title.value} ${emoji}`;
-      try {
-        console.log(`${id}번 내용 변경`);
-        await put(id, 'title', newTitle);
-      } catch (error) {
-        console.error(error);
-      }
-    });
-
-    observer.observe(icon, {
-      childList: true,
-      subtree: true,
-      characterData: true,
-    });
-
-    // 제목 변경시 사이드바 리렌더링
-    title.addEventListener('keyup', async () => {
-      const iconText = icon.textContent.trim(); // 이모지 값 추출
-      const iconEmoji = isEmoji(iconText) ? iconText : '';
-      const titleText = title.value + ' ' + iconEmoji; // 이모지 붙이기
-      // const pathname = window.location.pathname;
-
-      try {
-        console.log(`${id}번 제목 변경`);
-        await put(id, 'title', titleText);
-        getDocuments();
-      } catch (error) {
-        console.error(error);
-      }
-    });
-
-    // 내용 변경. 사이드바 리렌더링 하지 않음
-    content.addEventListener('keyup', async () => {
-      const titleContent = content.value;
-
-      try {
-        console.log(`${id}번 내용 변경`);
-        await put(id, 'content', titleContent);
-      } catch (error) {
-        console.error(error);
-      }
-    });
-
-    // 아이콘 요소와 이모지가 담긴 목록
-    const emojiBtn = document.getElementById('emojiBtn');
-    const picker = new EmojiButton({ theme: 'auto', position: 'bottom-start' });
-
-    // 아이콘 요소 클릭시, 이모지 목록 펼침
-    emojiBtn.addEventListener('click', async () => {
-      picker.togglePicker(emojiBtn);
-    });
-
-    // 이모지 목록에서 특정 값을 선택시, 이모지 확인됨
-    picker.on('emoji', async (emoji) => {
-      const iconSpan = document.createElement('span');
-      iconSpan.className = 'material-symbols-outlined icon';
-      iconSpan.id = 'icon';
-      iconSpan.textContent = emoji;
-      emojiBtn.innerHTML = ''; // 기존 이모지 초기화
-      emojiBtn.appendChild(iconSpan);
-
-      if (!currentDocId) {
-        console.log('현재 문서 ID를 찾을 수 없습니다.');
-        return;
-      }
-      const titleWithEmoji = title.value + ' ' + emoji;
-      try {
-        await put(currentDocId, 'title', titleWithEmoji);
-        getDocuments();
-      } catch (error) {
-        console.error('이모지 변경 저장 실패:', error);
-      }
-    });
+    title.addEventListener('keyup', titleHandler);
+    content.addEventListener('keyup', contentHandler);
   };
 
   // 문서 목록 클릭 이벤트 추가

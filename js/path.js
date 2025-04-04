@@ -18,20 +18,6 @@ window.addEventListener('DOMContentLoaded', () => {
             }
           }
         });
-
-        // 삭제된 노드 감지하여 path 변경
-        mutation.removedNodes.forEach((node) => {
-          if (node.nodeName === 'LI') {
-            const deletedId = node.dataset.id; // 삭제된 li의 id 가져오기
-            const currentPath = window.location.pathname;
-            const pathId = currentPath.split('/').pop(); // 현재 path의 id 추출
-
-            // 삭제된 ID가 현재 URL의 ID와 같다면 path에서 ID 제거
-            if (deletedId === pathId) {
-              window.history.pushState({}, '', '/html/posting.html'); // ID 없는 상태로 변경
-            }
-          }
-        });
       }
     });
   });
@@ -45,41 +31,36 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   const clickLi = (li) => {
-    //const files = document.querySelectorAll('#showAll > li');
-    //console.log(files);
-    //Array.from(files).forEach((li) => {
     li.addEventListener('click', (e) => {
       e.preventDefault();
       const li = e.currentTarget;
       const id = li.dataset.id;
       router(id);
     });
-    //});
   };
-  //clickLi();
 
   const clickAddBtn = (btn) => {
-    //const files = document.querySelectorAll('#showAll > li');
-    //console.log(files);
-    //Array.from(files).forEach((li) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const li = e.currentTarget.parentElement;
       const id = li.dataset.id;
       router(id);
     });
-    //});
   };
 });
 
 function router(id) {
   // 웹 브라우저의 주소가 li태그의 data-id로 변경됨
   const pathname = window.location.pathname;
+
+  if (!id) return; // id가 없는 경우 path를 변경하지 않도록 방어 코드 추가
+
   if (pathname.includes('posting.html/')) {
     window.history.pushState({}, '', id);
   } else {
     window.history.pushState({}, '', `posting.html/${id}`);
   }
+
   handleLocation();
 }
 
