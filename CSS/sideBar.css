@@ -84,11 +84,15 @@
   line-height: 2.4em;
   font-size: var(--sidebar-font-size);
 
-
-
   div {
     padding-left: 10px;
     transition: font-size 0.1s ease-in-out;
+
+    button {
+      margin-left: 132px;
+      background-color: var(--main-bg-color1);
+      ;
+    }
   }
   span {
     font-weight: 500;
@@ -124,10 +128,13 @@
 
       &:hover .arrow {
         background-color: var(--main-bg-color3);
-
       }
+      
       a {
         width: 85%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
       
       .arrow {
@@ -142,6 +149,9 @@
       }
 
       .documentIcon {
+        align-items: center;
+        justify-content: center;
+        padding-top: 6px;
       }
 
       .right {
@@ -156,7 +166,20 @@
         border: none;
         cursor: pointer;
       }
+    }
+    .depth1 {
+      margin-left: 15px;
       
+      .addDocumentBtn {
+        margin-right: 16px;
+      }
+    }
+    .depth2 {
+      margin-left: 35px;
+
+      .addDocumentBtn {
+        margin-right: 36px;
+      }
     }
   }
 }
